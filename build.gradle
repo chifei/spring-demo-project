@@ -1,0 +1,103 @@
+apply from: file("${rootDir}/gradle/project.gradle")
+
+subprojects {
+    apply from: file("${rootDir}/gradle/quality.gradle")
+
+    group = 'core.framework'
+    version = '2.1.0'
+}
+
+def springVersion = '4.1.6.RELEASE'
+def awsVersion = '1.9.27'
+
+project(':core') {
+    apply from: file("${rootDir}/gradle/lib.gradle")
+
+    dependencies {
+        provided(
+                'javax.servlet:javax.servlet-api:3.1.0',
+                'redis.clients:jedis:2.4.2',
+                module("com.amazonaws:aws-java-sdk-sns:${awsVersion}") {
+                    dependencies "com.fasterxml.jackson.core:jackson-databind:2.5.1"
+                },
+                "com.amazonaws:aws-java-sdk-sqs:${awsVersion}"
+        )
+
+        compile(
+                'javax.inject:javax.inject:1',
+                "javax.cache:cache-api:1.0.0",
+                "org.springframework:spring-webmvc:${springVersion}",
+                "org.springframework:spring-context-support:${springVersion}",
+                "org.springframework:spring-jdbc:${springVersion}",
+                "org.springframework:spring-orm:${springVersion}",
+                'javax.validation:validation-api:1.1.0.Final',
+                'org.hibernate:hibernate-validator:5.1.0.Final',
+                'org.slf4j:slf4j-api:1.7.7',
+                'ch.qos.logback:logback-classic:1.1.2',
+                'com.google.guava:guava:18.0',
+                'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1',
+                'org.hibernate:hibernate-entitymanager:4.3.4.Final',
+                'javax.interceptor:javax.interceptor-api:1.2', // referred by Transactional.class
+                'org.apache.httpcomponents:httpclient:4.3.4',
+                'org.apache.commons:commons-lang3:3.3',
+                'org.freemarker:freemarker:2.3.20',
+                'javax.mail:mail:1.4.7',
+                'com.mchange:c3p0:0.9.5'
+        )
+        testCompile(
+                "org.springframework:spring-test:${springVersion}",
+                'com.jayway.jsonpath:json-path:0.9.1',
+                'javax.el:javax.el-api:3.0.0',
+                'org.hsqldb:hsqldb:2.3.2'
+        )
+    }
+}
+
+configure([project(':demo-service'), project(':demo-website'), project(':demo-scheduler')]) {
+    apply from: file("${rootDir}/gradle/web.gradle")
+
+    dependencies {
+        compile(
+                project(':core'),
+                'redis.clients:jedis:2.4.2',
+                'com.mchange:c3p0:0.9.2.1',
+                'org.hsqldb:hsqldb:2.3.2'
+        )
+        testCompile(
+                "org.springframework:spring-test:${springVersion}",
+                'com.jayway.jsonpath:json-path:0.9.1',
+                'javax.el:javax.el-api:3.0.0'
+        )
+    }
+}
+
+project(':demo-service') {
+}
+
+project(':demo-scheduler') {
+    dependencies {
+        compile(
+                "com.amazonaws:aws-java-sdk-sqs:${awsVersion}",
+                "com.amazonaws:aws-java-sdk-sns:${awsVersion}"
+        )
+    }
+}
+
+project(':demo-website') {
+    dependencies {
+        compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.14.v20181114'
+        compile group: 'org.eclipse.jetty', name: 'jetty-servlets', version: '9.4.14.v20181114'
+        compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.4.14.v20181114'
+        compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b11'
+
+
+        compile(
+                'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE',
+                'commons-fileupload:commons-fileupload:1.3.1'
+        )
+    }
+}
+
+project(':db-migration') {
+    apply from: file("${rootDir}/gradle/db-migration.gradle")
+}

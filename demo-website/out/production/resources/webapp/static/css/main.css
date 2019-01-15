@@ -1,0 +1,4 @@
+body {
+    background-color: azure;
+    background-image: url("/test.png?version=${project.build.time}");
+}

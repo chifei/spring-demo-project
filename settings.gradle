@@ -1,0 +1,5 @@
+include 'core',
+        'demo-website',
+        'demo-service',
+        'demo-scheduler',
+        'db-migration'

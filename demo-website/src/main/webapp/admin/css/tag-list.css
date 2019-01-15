@@ -1,0 +1,66 @@
+.el-tag-list {
+
+}
+
+.el-tag-list .el-tag {
+    color: #333;
+    background: #f4f4f4;
+    border: 1px solid #f4f4f4;
+    margin-right: 10px;
+}
+
+.el-tag-list .el-tag .el-icon-close {
+    color: #999;
+}
+
+.el-tag-list:first-child > .el-tag {
+}
+
+.el-tag-list .input-new-tag,
+.el-tag-list .button-new-tag {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.el-tag-list .input-new-tag:first-child,
+.el-tag-list .button-new-tag:first-child {
+    margin-left: 0;
+}
+
+.el-tag-list .button-new-tag {
+    width: 80px;
+    height: 32px;
+    line-height: 30px;
+    margin-right: 160px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.el-tag-list .input-new-tag {
+    width: 80px;
+    vertical-align: middle;
+    margin-left: -240px;
+    background: none;
+    z-index: -1;
+}
+
+.el-tag-list .input-new-tag.open {
+    width: 240px;
+    transition: width 0.2s ease;
+    background: #fff;
+    z-index: 1;
+}
+
+.el-tag-list .input-new-tag input {
+    background: none;
+    height: 24px;
+    line-height: 22px;
+}
+
+.el-notification__icon {
+    font-size: 40px !important;
+}
+
+.el-notification__content {
+    color: #333;
+}
