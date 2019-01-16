@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Component
 public class UserInfo {
-    public static String SESSION_USER_ID = "__user_id";
+    public static final String SESSION_USER_ID = "__user_id";
 
     @Inject
     SessionContext sessionContext;
@@ -37,8 +37,7 @@ public class UserInfo {
 
     public String username() {
         String userId = sessionContext.get(SessionKey.stringKey(SESSION_USER_ID));
-        User user = userService.get(userId);
-        return user.username;
+        return userService.get(userId).username;
     }
 
     public void setUserId(String userId) {

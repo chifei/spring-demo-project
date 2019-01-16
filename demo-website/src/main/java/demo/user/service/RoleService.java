@@ -77,17 +77,17 @@ public class RoleService {
 
     @Transactional
     public void batchDelete(List<String> ids) {
-        StringBuilder b = new StringBuilder();
+        StringBuilder b = new StringBuilder(64);
         b.append("DELETE FROM Role t WHERE t.id in (");
-        int MAX_GROUP_COUNT = 1000;
+        int maxGroupCount = 1000;
         for (int i = 0; i < ids.size(); i++) {
-            int index = i % MAX_GROUP_COUNT;
+            int index = i % maxGroupCount;
             if (i != 0 && index == 0) {
                 b.append(") OR t.id in (");
             } else if (index != 0) {
                 b.append(',');
             }
-            b.append("'").append(ids.get(i)).append("'");
+            b.append('\'').append(ids.get(i)).append('\'');
         }
         b.append(')');
         repository.update(Query.create(b.toString()));

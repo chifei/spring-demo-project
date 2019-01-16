@@ -23,7 +23,6 @@ public class MessageAJAXController {
     @RequestMapping(value = "/admin/api/messages/{language}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public Map<String, String> index(@PathVariable("language") String language) {
         Locale locale = Locale.forLanguageTag(language);
-        Map<String, String> messages = this.messages.getMessages(locale);
-        return messages;
+        return this.messages.getMessages(locale);
     }
 }

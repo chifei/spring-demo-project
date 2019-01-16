@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
-import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractDispatcherServletInitializer;
 
@@ -43,18 +42,12 @@ public class Main {
         ServletContextHandler contextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS); // SESSIONS requerido para JSP 
         contextHandler.setErrorHandler(null);
 
-//        contextHandler.setResourceBase(new ClassPathResource("webapp").getURI().toString());
         contextHandler.setResourceBase(new FileSystemResource("D:\\Workspace\\spring-demo-project\\demo-website\\src\\main\\resources\\webapp").getURI().toString());
         contextHandler.setContextPath("/");
 
-        // JSP
         contextHandler.setClassLoader(Thread.currentThread().getContextClassLoader()); // Necesario para cargar JspServlet
 
-        // Spring
         AnnotationConfigWebApplicationContext webAppContext = getWebApplicationContext();
-//        DispatcherServlet dispatcherServlet = new DispatcherServlet(webAppContext);
-//        ServletHolder springServletHolder = new ServletHolder("mvc-dispatcher", dispatcherServlet);
-//        contextHandler.addServlet(springServletHolder, MAPPING_URL);
         contextHandler.addEventListener(new ContextLoaderListener(webAppContext) {
             @Override
             public void contextInitialized(ServletContextEvent event) {
@@ -65,10 +58,6 @@ public class Main {
                 dispatcher.addMapping("/");
                 dispatcher.setLoadOnStartup(1);
                 servletContext.addFilter("platformFilter", new PlatformFilter()).addMappingForUrlPatterns(null, false, "/*");
-
-                CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-                characterEncodingFilter.setEncoding("UTF-8");
-                servletContext.addFilter("characterEncodingFilter", characterEncodingFilter).addMappingForUrlPatterns(null, false, "/*");
             }
         });
 
@@ -82,17 +71,17 @@ public class Main {
     }
 
     private static void addRuntimeShutdownHook(final Server server) {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (server.isStarted()) {
-                server.setStopAtShutdown(true);
-                try {
-                    server.stop();
-                } catch (Exception e) {
-                    System.out.println("Error while stopping jetty server: " + e.getMessage());
-                    LOGGER.error("Error while stopping jetty server: " + e.getMessage(), e);
+        Runtime.getRuntime().addShutdownHook(
+            new Thread(() -> {
+                if (server.isStarted()) {
+                    server.setStopAtShutdown(true);
+                    try {
+                        server.stop();
+                    } catch (Exception e) {
+                        LOGGER.error("Error while stopping jetty server: " + e.getMessage(), e);
+                    }
                 }
-            }
-        }));
+            }));
     }
 
 }

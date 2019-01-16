@@ -2,7 +2,12 @@ package demo.product.web;
 
 import demo.product.domain.Product;
 import demo.product.service.ProductService;
-import demo.product.web.product.*;
+import demo.product.web.product.CreateProductRequest;
+import demo.product.web.product.DeleteProductRequest;
+import demo.product.web.product.ProductQuery;
+import demo.product.web.product.ProductQueryResponse;
+import demo.product.web.product.ProductResponse;
+import demo.product.web.product.UpdateProductRequest;
 import demo.web.UserInfo;
 import org.springframework.web.bind.annotation.*;
 

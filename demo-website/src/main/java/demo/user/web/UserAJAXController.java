@@ -109,7 +109,7 @@ public class UserAJAXController {
     }
 
     @RequestMapping(value = "/admin/api/user/logout", method = RequestMethod.GET)
-    public void login() {
+    public void logout() {
         userInfo.logout();
     }
 
