@@ -20,8 +20,7 @@ import demo.user.web.user.UserQueryResponse;
 import demo.user.web.user.UserResponse;
 import demo.web.UserInfo;
 import demo.web.UserPreference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import demo.web.interceptor.PermissionRequired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +37,6 @@ import java.util.stream.Collectors;
  */
 @RestController
 public class UserAJAXController {
-    private final Logger logger = LoggerFactory.getLogger(UserAJAXController.class);
-
     @Inject
     Messages messages;
     @Inject
@@ -67,12 +64,14 @@ public class UserAJAXController {
     }
 
     @RequestMapping(value = "/admin/api/user/{id}", method = RequestMethod.GET)
+    @PermissionRequired("user.read")
     public UserResponse get(@PathVariable("id") String id) {
         User user = userService.get(id);
         return response(user);
     }
 
     @RequestMapping(value = "/admin/api/user/find", method = RequestMethod.PUT)
+    @PermissionRequired("user.read")
     public UserQueryResponse find(@RequestBody UserQuery userQuery) {
         UserQueryResponse userQueryResponse = new UserQueryResponse();
         userQueryResponse.items = items(userService.find(userQuery));
@@ -83,26 +82,29 @@ public class UserAJAXController {
     }
 
     @RequestMapping(value = "/admin/api/user", method = RequestMethod.POST)
+    @PermissionRequired("user.write")
     public UserResponse create(@RequestBody CreateUserRequest request) {
         request.requestBy = userInfo.username();
         return response(userService.create(request));
     }
 
     @RequestMapping(value = "/admin/api/user/{id}", method = RequestMethod.PUT)
+    @PermissionRequired("user.write")
     public UserResponse update(@PathVariable("id") String id, @RequestBody UpdateUserRequest request) {
         request.requestBy = userInfo.username();
         return response(userService.update(id, request));
     }
 
     @RequestMapping(value = "/admin/api/user/{id}/password", method = RequestMethod.PUT)
+    @PermissionRequired("user.write")
     public void updatePassword(@PathVariable("id") String id, @RequestBody UpdateUserPasswordRequest request) {
         request.requestBy = userInfo.username();
         userService.updatePassword(id, request);
     }
 
     @RequestMapping(value = "/admin/api/user/batch-delete", method = RequestMethod.POST)
+    @PermissionRequired("user.write")
     public void delete(@RequestBody DeleteUserRequest request) {
-        request.requestBy = userInfo.username();
         userService.batchDelete(request.ids);
     }
 

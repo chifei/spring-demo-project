@@ -185,12 +185,10 @@ export default class User extends React.Component {
                             this.userForm = c;
                         }} labelWidth="150">
                             <Form.Item label={window.ElementUI.i18n.t("user.username")} prop="username">
-                                <Input value={this.state.user.username} onChange={value => this.onChange("username", value)} disabled={true}/>
-
+                                <span>{this.state.user.username}</span>
                             </Form.Item>
-
                             <Form.Item label={window.ElementUI.i18n.t("user.email")} prop="email">
-                                <Input value={this.state.user.email} onChange={value => this.onChange("email", value)} disabled={true}/>
+                                <span>{this.state.user.email}</span>
                             </Form.Item>
                             <Form.Item label={window.ElementUI.i18n.t("user.userGroup")} prop="userGroup">
                                 <Select value={this.state.user.roleIds} loading={this.state.userGroupLoading} disabled={true} multiple={true} onChange={selected => this.userGroupIdsChange(selected)}>

@@ -1,8 +1,8 @@
 package demo.web.interceptor;
 
+import core.framework.exception.UserAuthorizationException;
 import core.framework.web.site.ControllerHelper;
 import demo.web.UserInfo;
-import demo.web.exception.UnauthenticatedException;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.inject.Inject;
@@ -19,7 +19,7 @@ public class LoginRequiredInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (isLoginRequired(handler) && !userInfo.isUserLogin()) {
-            throw new UnauthenticatedException();
+            throw new UserAuthorizationException("login required");
         }
         return super.preHandle(request, response, handler);
     }

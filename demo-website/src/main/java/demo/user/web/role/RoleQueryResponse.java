@@ -1,7 +1,5 @@
 package demo.user.web.role;
 
-import demo.user.domain.Role;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,5 +17,5 @@ public class RoleQueryResponse {
     @XmlElement(name = "limit")
     public Integer limit;
     @XmlElement(name = "items")
-    public List<Role> items;
+    public List<RoleResponse> items;
 }

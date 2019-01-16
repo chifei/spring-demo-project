@@ -1,6 +1,7 @@
 import React from "react";
 import {Route} from "react-router-dom";
 import PropTypes from "prop-types";
+import {Notification as notification} from "element-react";
 
 import UserList from "./user.list";
 import UserGroupList from "./user.group.list";
@@ -9,7 +10,6 @@ import UserView from "./user.view";
 import UserGroup from "./user.group.update";
 import UserLogin from "./user.login";
 import UserLogout from "./user.logout";
-import Forbidden from "./forbidden";
 import UserProfile from "./user.profile";
 
 export default class Index extends React.Component {
@@ -22,10 +22,14 @@ export default class Index extends React.Component {
     componentWillMount() {
         fetchIntercept((response) => {
             if (response.status === 401) {
-                window.location = "/admin/user/login";
+                window.location.href = "/login";
             }
             if (response.status === 403) {
-                window.location = "/admin/user/unauthorized";
+                notification({
+                    title: "ERROR",
+                    message: response.json.message,
+                    type: "error"
+                });
             }
             return response;
         });
@@ -34,7 +38,6 @@ export default class Index extends React.Component {
     render() {
         return (
             <div>
-                <Route exact path="/admin/user/unauthorized" component={Forbidden}/>
                 <Route exact path="/admin/user/login" component={UserLogin}/>
                 <Route exact path="/admin/user/logout" component={UserLogout}/>
                 <Route exact path="/admin/user/list" component={UserList}/>

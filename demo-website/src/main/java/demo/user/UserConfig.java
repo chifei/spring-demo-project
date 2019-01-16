@@ -33,7 +33,7 @@ public class UserConfig {
 
         CreateRoleRequest admin = new CreateRoleRequest();
         admin.name = "admin";
-        admin.permissions = Lists.newArrayList("*");
+        admin.permissions = Lists.newArrayList("user.read", "user.write", "product.read", "product.write");
         admin.requestBy = "SYS";
         admin.status = RoleStatus.ACTIVE;
         Role adminRole = roleService.create(admin);

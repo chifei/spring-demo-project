@@ -147,7 +147,7 @@ export default class UserList extends React.Component {
             for (let i = 0; i < list.length; i += 1) {
                 ids.push(list[i].id);
             }
-            fetch("/admin/api/user/delete", {
+            fetch("/admin/api/user/batch-delete", {
                 method: "POST",
                 body: JSON.stringify({ids: ids})
             }).then(() => {

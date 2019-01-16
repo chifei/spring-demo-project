@@ -38,9 +38,6 @@ class App extends React.Component {
     }
 
     hasPermission(permissions) {
-        if (window.user.permissions.includes("*")) {
-            return true;
-        }
         for (let i = 0; i < permissions.length; i += 1) {
             if (!window.user.permissions.includes(permissions[i])) {
                 return false;

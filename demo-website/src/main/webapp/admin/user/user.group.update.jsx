@@ -70,7 +70,16 @@ export default class UserGroup extends React.Component {
     }
 
     select(selected) {
-        this.setState({selected: selected});
+        const userGroup = this.state.userGroup;
+        const permissions = [];
+        for (var i = 0; i < selected.length; i++) {
+            permissions.push(selected[i].name);
+        }
+        userGroup.permissions = permissions;
+        this.setState({
+            selected: selected,
+            userGroup: userGroup
+        });
     }
 
     onChange(key, value) {

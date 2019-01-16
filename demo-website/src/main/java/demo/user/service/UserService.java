@@ -6,6 +6,7 @@ import com.google.common.base.Strings;
 import com.google.common.hash.Hashing;
 import core.framework.database.JPAAccess;
 import core.framework.database.Query;
+import core.framework.exception.InvalidRequestException;
 import demo.user.domain.User;
 import demo.user.domain.UserStatus;
 import demo.user.web.user.CreateUserRequest;
@@ -13,7 +14,6 @@ import demo.user.web.user.LoginRequest;
 import demo.user.web.user.UpdateUserPasswordRequest;
 import demo.user.web.user.UpdateUserRequest;
 import demo.user.web.user.UserQuery;
-import demo.web.BadRequestException;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -115,10 +115,10 @@ public class UserService {
     @Transactional
     public User create(CreateUserRequest request) {
         if (isUsernameExists(request.username)) {
-            throw new BadRequestException("user.duplicatedUsername");
+            throw new InvalidRequestException("user.username", "duplicated username");
         }
         if (isEmailExits(request.email)) {
-            throw new BadRequestException("user.duplicatedEmail");
+            throw new InvalidRequestException("user.email", "duplicated email");
         }
 
         User user = new User();
@@ -144,7 +144,7 @@ public class UserService {
         if (request.email != null) {
             Optional<User> duplicateEmailUser = findByEmail(request.email);
             if (duplicateEmailUser.isPresent() && !duplicateEmailUser.get().id.equals(id)) {
-                throw new BadRequestException("user.duplicatedEmail");
+                throw new InvalidRequestException("user.email", "duplicated email");
             }
             user.email = request.email;
         }
