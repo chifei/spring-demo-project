@@ -5,7 +5,6 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -42,7 +41,9 @@ public class Main {
         ServletContextHandler contextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS); // SESSIONS requerido para JSP 
         contextHandler.setErrorHandler(null);
 
-        contextHandler.setResourceBase(new FileSystemResource("D:\\Workspace\\spring-demo-project\\demo-website\\src\\main\\resources\\webapp").getURI().toString());
+        String mainClassPath = Main.class.getClassLoader().getResource("Main.class").toExternalForm();
+        contextHandler.setResourceBase(mainClassPath.substring(0, mainClassPath.length() - "Main.class".length()));
+//        contextHandler.setResourceBase(new FileSystemResource("D:\\Workspace\\spring-demo-project\\demo-website\\src\\main\\webapp").getURI().toString());
         contextHandler.setContextPath("/");
 
         contextHandler.setClassLoader(Thread.currentThread().getContextClassLoader()); // Necesario para cargar JspServlet

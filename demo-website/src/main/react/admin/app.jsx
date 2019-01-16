@@ -16,6 +16,7 @@ import "./css/font-awesome.css";
 import {Sticky} from "./lib/sticky";
 import Error404 from "./404";
 import ProductUpdate from "./product/product.update";
+import ProductView from "./product/product.view";
 import ProductList from "./product/product.list";
 
 import UserList from "./user/user.list";
@@ -154,7 +155,7 @@ class App extends React.Component {
                             {
                                 this.hasPermission(["product.read"]) &&
                                 <Menu.Item index="/admin/product/list" key="/admin/product/list" className={this.isItemActive("/admin/product/list") ? "is-active" : ""}>
-                                    Product
+                                    {i18n.t("product.product")}
                                 </Menu.Item>
                             }
                         </Menu>
@@ -167,6 +168,7 @@ class App extends React.Component {
                             <Route path="/admin/product/list" component={ProductList}/>
                             <Route path="/admin/product/create" component={ProductUpdate}/>
                             <Route path="/admin/product/:id/update" component={ProductUpdate}/>
+                            <Route path="/admin/product/:id/view" component={ProductView}/>
                             <Route exact path="/admin/user/login" component={UserLogin}/>
                             <Route exact path="/admin/user/logout" component={UserLogout}/>
                             <Route exact path="/admin/user/list" component={UserList}/>

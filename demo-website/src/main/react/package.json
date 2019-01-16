@@ -4,8 +4,8 @@
     "description": "",
     "main": "main.jsx",
     "scripts": {
-        "webpack": "webpack --entry app=./admin/app --output-path=../resources/webapp/static/ --output-filename=[name].min.js --output-library=[name]Bundle --config=webpack.app.js",
-        "webpack-login": "webpack --entry login=./admin/login --output-path=../resources/webapp/static/ --output-filename=[name].min.js --output-library=[name]Bundle --config=webpack.app.js",
+        "webpack": "webpack --entry app=./admin/app --output-path=../webapp/static/ --output-filename=[name].min.js --output-library=[name]Bundle --config=webpack.app.js",
+        "webpack-login": "webpack --entry login=./admin/login --output-path=../webapp/static/ --output-filename=[name].min.js --output-library=[name]Bundle --config=webpack.app.js",
         "build": "npm run webpack -- --mode=development",
         "release": "npm run webpack -- --mode=production",
         "watch": "npm run webpack -- --mode=development --watch"

@@ -48,7 +48,10 @@ export default class ProductList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text" size="mini"><Link to={{pathname: "/admin/product/" + data.id + "/update"}}>{i18n.t("product.edit")}</Link></Button>
+                                <Button type="text" size="mini"><Link to={{pathname: "/admin/product/" + data.id + "/view"}}>{i18n.t("product.view")}</Link></Button>
+                                <ElementUI.PermissionRequired permissions={["product.write"]}>
+                                    <Button type="text" size="mini"><Link to={{pathname: "/admin/product/" + data.id + "/update"}}>{i18n.t("product.edit")}</Link></Button>
+                                </ElementUI.PermissionRequired>
                             </span>
                         );
                     }
@@ -121,16 +124,19 @@ export default class ProductList extends React.Component {
                         </Form>
                     </div>
                     <div className="toolbar-buttons">
-                        {this.state.selected.length > 0 ? <Button type="danger" onClick={() => this.batchDelete()} nativeType="button">{i18n.t("product.delete")}</Button> : ""}
-                        <Button type="primary" nativeType="button">
-                            <Link to={{pathname: "/admin/product/create"}}>
-                                {i18n.t("product.createProduct")}
-                            </Link>
-                        </Button>
+                        <ElementUI.PermissionRequired permissions={["product.write"]}>
+                            {this.state.selected.length > 0 ? <Button type="danger" onClick={() => this.batchDelete()} nativeType="button">{i18n.t("product.delete")}</Button> : ""}
+                            <Button type="primary" nativeType="button">
+                                <Link to={{pathname: "/admin/product/create"}}>
+                                    {i18n.t("product.createProduct")}
+                                </Link>
+                            </Button>
+                        </ElementUI.PermissionRequired>
                     </div>
                 </div>
                 <div className="body body--full">
-                    <Table style={{width: "100%"}} stripe={true} highlightCurrentRow={true} columns={this.state.columns} data={this.state.data.items} onSelectChange={selected => this.select(selected)}/>
+                    <Table style={{width: "100%"}} stripe={true} highlightCurrentRow={true} columns={this.state.columns} data={this.state.data.items}
+                        onSelectChange={selected => this.select(selected)}/>
                 </div>
                 <div className="footer">
                     <Pagination layout="total,sizes,prev,pager,next,jumper" total={this.state.data.total} pageSizes={this.state.limitOptions} pageSize={this.state.query.limit}

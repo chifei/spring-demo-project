@@ -9,7 +9,12 @@ import demo.product.web.product.ProductQueryResponse;
 import demo.product.web.product.ProductResponse;
 import demo.product.web.product.UpdateProductRequest;
 import demo.web.UserInfo;
-import org.springframework.web.bind.annotation.*;
+import demo.web.interceptor.PermissionRequired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
 import java.util.stream.Collectors;
@@ -26,12 +31,14 @@ public class ProductAJAXController {
     UserInfo userInfo;
 
     @RequestMapping(value = "/admin/api/product/{id}", method = RequestMethod.GET)
+    @PermissionRequired("product.read")
     public ProductResponse get(@PathVariable("id") String id) {
         Product product = productService.get(id);
         return response(product);
     }
 
     @RequestMapping(value = "/admin/api/product/find", method = RequestMethod.PUT)
+    @PermissionRequired("product.read")
     public ProductQueryResponse find(@RequestBody ProductQuery productQuery) {
         ProductQueryResponse productQueryResponse = new ProductQueryResponse();
         productQueryResponse.items = productService.find(productQuery).stream().map(product -> {
@@ -44,18 +51,21 @@ public class ProductAJAXController {
     }
 
     @RequestMapping(value = "/admin/api/product/batch-delete", method = RequestMethod.POST)
+    @PermissionRequired("product.write")
     public void delete(@RequestBody DeleteProductRequest request) {
         request.requestBy = userInfo.username();
         productService.batchDelete(request.ids);
     }
 
     @RequestMapping(value = "/admin/api/product", method = RequestMethod.POST)
+    @PermissionRequired("product.write")
     public ProductResponse create(@RequestBody CreateProductRequest request) {
         request.requestBy = userInfo.username();
         return response(productService.create(request));
     }
 
     @RequestMapping(value = "/admin/api/product/{id}", method = RequestMethod.PUT)
+    @PermissionRequired("product.write")
     public ProductResponse update(@PathVariable("id") String id, @RequestBody UpdateProductRequest request) {
         request.requestBy = userInfo.username();
         return response(productService.update(id, request));
