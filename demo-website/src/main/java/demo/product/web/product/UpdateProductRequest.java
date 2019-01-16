@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlElement;
  * @author chi
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CreateProductRequest {
+public class UpdateProductRequest {
     @NotNull
     @Size(max = 128)
     @XmlElement(name = "name")
