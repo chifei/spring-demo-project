@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DateFormatter, Form, Input, Message as alert, MessageBox, Pagination, Select, Table} from "element-react";
+import {Button, Form, Input, Message as alert, MessageBox, Pagination, PermissionRequired, Select, Table} from "element-react";
 import {Link} from "react-router-dom";
 
 const i18n = window.i18n;
@@ -63,8 +63,13 @@ export default class UserGroupList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>
-                                <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
+                                <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/view"}}> {i18n.t("user.view")} </Link></Button>
+                                {/*<PermissionRequired permissions={["user.write"]}>*/}
+                                {/*<Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>*/}
+                                {/*</PermissionRequired>*/}
+                                {/*<PermissionRequired permissions={["user.write"]}>*/}
+                                {/*<Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>*/}
+                                {/*</PermissionRequired>*/}
                             </span>
                         );
                     }.bind(this)
@@ -99,9 +104,7 @@ export default class UserGroupList extends React.Component {
 
     delete(data) {
         console.log(data);
-        MessageBox.confirm(i18n.t("user.roleDeleteContent"), i18n.t("user.delete"), {
-            type: 'warning'
-        }).then(() => {
+        MessageBox.confirm(i18n.t("user.roleDeleteContent"), i18n.t("user.delete"), {type: "warning"}).then(() => {
             fetch("/admin/api/user/role/batch-delete", {
                 method: "POST",
                 body: JSON.stringify({ids: [data.id]})
@@ -116,17 +119,15 @@ export default class UserGroupList extends React.Component {
     }
 
     batchDelete() {
-        MessageBox.confirm(i18n.t("user.roleDeleteContent"), i18n.t("user.delete"), {
-            type: 'warning'
-        }).then(() => {
-            const list = this.state.selected,
-                ids = [];
+        MessageBox.confirm(i18n.t("user.roleDeleteContent"), i18n.t("user.delete"), {type: "warning"}).then(() => {
+            const list = this.state.selected, ids = [];
             if (list.length === 0) {
                 return;
             }
             for (let i = 0; i < list.length; i += 1) {
                 ids.push(list[i].id);
             }
+
             fetch("/admin/api/user/role/batch-delete", {
                 method: "POST",
                 body: JSON.stringify({ids: ids})

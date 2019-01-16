@@ -1,16 +1,22 @@
 import React from "react";
 import {Route} from "react-router-dom";
 
-import ProductUpdate from "./product.update";
-import ProductList from "./product.list";
 
 
-export default function AffiliateIndex() {
-    return (
-        <div>
-            <Route path="/admin/product/list" component={ProductList}/>
-            <Route path="/admin/product/create" component={ProductUpdate}/>
-            <Route path="/admin/product/:id/update" component={ProductUpdate}/>
-        </div>
-    );
+
+export default class ProductIndex extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        );
+    }
 }
+
+ProductIndex.propTypes = {history: PropTypes.object};

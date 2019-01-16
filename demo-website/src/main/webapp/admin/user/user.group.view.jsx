@@ -1,10 +1,10 @@
 import React from "react";
-import {Breadcrumb, Button, Card, Checkbox, Form, Input, Table} from "element-react";
+import {Breadcrumb, Button, Card, Form, Input, Table} from "element-react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 const i18n = window.i18n;
-export default class UserGroupUpdate extends React.Component {
+export default class UserGroupView extends React.Component {
     constructor(props) {
         super(props);
 
@@ -49,16 +49,19 @@ export default class UserGroupUpdate extends React.Component {
                     fetch("/admin/api/user/role/" + this.state.id)
                         .then((userGroup) => {
                             const selected = [];
-                            for (let i = 0; i < permissions.length; i++) {
+                            for (let i = 0; i < permissions.length; i += 1) {
                                 const permission = permissions[i];
                                 if (userGroup.permissions.includes(permission.name)) {
                                     selected.push(permission);
                                 }
                             }
-                            this.setState({userGroup: userGroup, selected: selected});
+                            this.setState({
+                                userGroup: userGroup,
+                                selected: selected
+                            });
 
                             if (this.table) {
-                                for (let i = 0; i < selected.length; i++) {
+                                for (let i = 0; i < selected.length; i += 1) {
                                     this.table.toggleRowSelection(selected[i], true);
                                 }
                             }
@@ -67,19 +70,6 @@ export default class UserGroupUpdate extends React.Component {
             });
         });
 
-    }
-
-    select(selected) {
-        const userGroup = this.state.userGroup;
-        const permissions = [];
-        for (var i = 0; i < selected.length; i++) {
-            permissions.push(selected[i].name);
-        }
-        userGroup.permissions = permissions;
-        this.setState({
-            selected: selected,
-            userGroup: userGroup
-        });
     }
 
     onChange(key, value) {
@@ -126,16 +116,10 @@ export default class UserGroupUpdate extends React.Component {
                         <Breadcrumb separator="/">
                             <Breadcrumb.Item><Link to="/admin">{i18n.t("user.home")}</Link></Breadcrumb.Item>
                             <Breadcrumb.Item><Link to="/admin/user/role/list">{i18n.t("user.userGroupList")}</Link></Breadcrumb.Item>
-                            <Breadcrumb.Item>
-                                {this.state.id
-                                    ? i18n.t("user.userGroupUpdate")
-                                    : i18n.t("user.userGroupCreate")}</Breadcrumb.Item>
+                            <Breadcrumb.Item>{i18n.t("user.view")}</Breadcrumb.Item>
                         </Breadcrumb>
                     </div>
                     <div className="toolbar-buttons">
-                        {this.state.id
-                            ? <Button type="primary" onClick={() => this.update()}>{i18n.t("user.save")}</Button>
-                            : <Button type="primary" onClick={() => this.save()}>{i18n.t("user.save")}</Button>}
                         <Button type="button"><Link to="/admin/user/role/list">{i18n.t("user.cancel")}</Link></Button>
                     </div>
                 </div>
@@ -159,7 +143,6 @@ export default class UserGroupUpdate extends React.Component {
                                     style={{width: "100%"}}
                                     columns={this.state.columns}
                                     data={this.state.permissions}
-                                    onSelectChange={selected => this.select(selected)}
                                 />
                             </Form.Item>
                         </Form>
@@ -170,7 +153,7 @@ export default class UserGroupUpdate extends React.Component {
     }
 }
 
-UserGroupUpdate.propTypes = {
+UserGroupView.propTypes = {
     match: PropTypes.object,
     history: PropTypes.object
 };

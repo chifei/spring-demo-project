@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Card, Checkbox, Form, Input} from "element-react";
+import {Button, Card, Form, Input} from "element-react";
 import PropTypes from "prop-types";
 import "./user.login.css";
 
@@ -56,13 +56,13 @@ export default class UserLogin extends React.Component {
                         window.location.href = loginResponse.fromURL;
                     } else {
                         const rules = this.state.rules;
-                        rules["username"].push({
+                        rules.username.push({
                             trigger: "callback",
                             validator: (rule, value, callback) => callback(new Error(loginResponse.message))
                         });
                         this.setState({rules});
                         this.loginForm.validateField("username", () => {
-                            rules["username"] = rules["username"].filter(rule => rule.trigger !== "callback");
+                            rules.username = rules.username.filter(rule => rule.trigger !== "callback");
                             this.setState({rules});
                         });
                     }

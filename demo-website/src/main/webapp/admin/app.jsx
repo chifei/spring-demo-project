@@ -13,13 +13,24 @@ import "./css/main.css";
 import "./css/iconfont.css";
 import "./css/font-awesome.css";
 
-import UserIndex from "./user/user"
-import ProductIndex from "./product/product"
 import {Sticky} from "./lib/sticky";
 import Error404 from "./404";
+import ProductUpdate from "./product/product.update";
+import ProductList from "./product/product.list";
 
-const history = createHistory({basename: '/'});
+import UserList from "./user/user.list";
+import UserGroupList from "./user/user.group.list";
+import UserUpdate from "./user/user.update";
+import UserView from "./user/user.view";
+import UserGroupUpdate from "./user/user.group.update";
+import UserGroupView from "./user/user.group.view";
+import UserLogin from "./user/user.login";
+import UserLogout from "./user/user.logout";
+import UserProfile from "./user/user.profile";
+
+const history = createHistory({basename: "/"});
 window.ElementUI.i18n.use(window.messages);
+const i18n = window.i18n;
 
 class App extends React.Component {
     constructor(props) {
@@ -34,6 +45,22 @@ class App extends React.Component {
         };
         history.listen((location) => {
             this.setState({pathname: location.pathname});
+        });
+    }
+
+    componentWillMount() {
+        fetchIntercept((response) => {
+            if (response.status === 401) {
+                window.location.href = "/login";
+            }
+            if (response.status === 403) {
+                notification({
+                    title: "ERROR",
+                    message: response.json.message,
+                    type: "error"
+                });
+            }
+            return response;
         });
     }
 
@@ -114,13 +141,13 @@ class App extends React.Component {
                             </Menu.SubMenu>
 
                             {
-                                this.hasPermission(["user.read"]) && <Menu.SubMenu index='/user' title={i18n.t('user.user')} key='/user'
-                                    className={(this.isActive('/user') ? "is-active" : "")}>
+                                this.hasPermission(["user.read"]) && <Menu.SubMenu index="/user" title={i18n.t("user.user")} key="/user"
+                                    className={(this.isActive("/user") ? "is-active" : "")}>
                                     <Menu.Item index="/admin/user/list" key="/admin/user/list" className={this.isItemActive("/admin/user/list") ? "is-active" : ""}>
-                                        {i18n.t('user.userList')}
+                                        {i18n.t("user.userList")}
                                     </Menu.Item>
                                     <Menu.Item index="/admin/user/role/list" key="/admin/user/role/list" className={this.isItemActive("/admin/user/role/list") ? "is-active" : ""}>
-                                        {i18n.t('user.userGroupList')}
+                                        {i18n.t("user.userGroupList")}
                                     </Menu.Item>
                                 </Menu.SubMenu>
                             }
@@ -138,8 +165,20 @@ class App extends React.Component {
                 <div className={"page-container" + (this.state.pageFixed ? " page-container--fixed" : "")}>
                     <Router history={history}>
                         <Switch>
-                            <UserIndex/>
-                            <ProductIndex/>
+                            <Route path="/admin/product/list" component={ProductList}/>
+                            <Route path="/admin/product/create" component={ProductUpdate}/>
+                            <Route path="/admin/product/:id/update" component={ProductUpdate}/>
+                            <Route exact path="/admin/user/login" component={UserLogin}/>
+                            <Route exact path="/admin/user/logout" component={UserLogout}/>
+                            <Route exact path="/admin/user/list" component={UserList}/>
+                            <Route exact path="/admin/user/role/list" component={UserGroupList}/>
+                            <Route exact path="/admin/user/create" component={UserUpdate}/>
+                            <Route exact path="/admin/user/:id/update" component={UserUpdate}/>
+                            <Route exact path="/admin/user/:id/view" component={UserView}/>
+                            <Route exact path="/admin/user/role/:id/update" component={UserGroupUpdate}/>
+                            <Route exact path="/admin/user/role/:id/view" component={UserGroupView}/>
+                            <Route exact path="/admin/user/role/create" component={UserGroupUpdate}/>
+                            <Route exact path="/admin/user/profile" component={UserProfile}/>
                             <Route component={Error404}/>
                         </Switch>
                     </Router>

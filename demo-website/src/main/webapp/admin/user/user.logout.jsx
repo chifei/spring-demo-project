@@ -8,6 +8,6 @@ export default class UserLogout extends React.Component {
     }
 
     render() {
-        return <br/>
+        return <br/>;
     }
 }

@@ -1,11 +1,10 @@
 import React from "react";
-import {Breadcrumb, Button, Card, Dialog, Form, Input, Select, Upload} from "element-react";
+import {Breadcrumb, Button, Card, Form, Select} from "element-react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
 import "./user.update.css";
 
-const i18n = window.i18n;
 export default class User extends React.Component {
     constructor(props) {
         super(props);

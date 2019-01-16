@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import {BrowserRouter, Link, NavLink, Redirect, Route, Switch as RouteSwitch, withRouter} from "react-router-dom";
 import Ellipsis from "./ellipsis";
 import DateFormatter from "./dateformatter";
-import RolesAllowed from "./rolesallowed";
+import PermissionRequired from "./permission-required";
 import ValidateForm from "./validate-form";
 import TreeTable from "./treetable";
 import TagList from "./taglist";
@@ -126,7 +126,7 @@ window.ElementUI = {
     TreeTable: TreeTable,
     Ellipsis: Ellipsis,
     DateFormatter: DateFormatter,
-    RolesAllowed: RolesAllowed
+    PermissionRequired: PermissionRequired
 };
 
 window.ReactRouterDom = {
