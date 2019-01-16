@@ -6,6 +6,8 @@ import core.framework.database.JPAAccess;
 import core.framework.database.Query;
 import demo.user.domain.Role;
 import demo.user.web.role.CreateRoleRequest;
+import demo.user.web.role.RoleQuery;
+import demo.user.web.role.UpdateRoleRequest;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
@@ -26,12 +28,24 @@ public class RoleService {
         return repository.get(Role.class, id);
     }
 
-    public List<Role> find() {
-        return repository.find(Query.create("SELECT t FROM Role t"));
+    public List<Role> find(RoleQuery roleQuery) {
+        Query query = Query.create("SELECT t FROM Role t WHERE 1=1");
+        if (roleQuery.name != null) {
+            query.append("AND t.name=:name");
+            query.param("name", roleQuery.name);
+        }
+        query.fetch(roleQuery.limit);
+        query.from(roleQuery.limit * (roleQuery.page - 1));
+        return repository.find(query);
     }
 
-    public long count() {
-        return repository.count(Query.create("SELECT count(t) FROM Role t"));
+    public long count(RoleQuery roleQuery) {
+        Query query = Query.create("SELECT count(t) FROM Role t WHERE 1=1");
+        if (roleQuery.name != null) {
+            query.append("AND t.name=:name");
+            query.param("name", roleQuery.name);
+        }
+        return repository.count(query);
     }
 
     @Transactional
@@ -46,6 +60,18 @@ public class RoleService {
         role.createdTime = OffsetDateTime.now();
         role.createdBy = request.requestBy;
         repository.save(role);
+        return role;
+    }
+
+    @Transactional
+    public Role update(String id, UpdateRoleRequest request) {
+        Role role = get(id);
+        role.name = request.name;
+        role.permissions = request.permissions == null ? null : Joiner.on(";").join(request.permissions);
+        role.status = request.status;
+        role.updatedTime = OffsetDateTime.now();
+        role.updatedBy = request.requestBy;
+        repository.update(role);
         return role;
     }
 }

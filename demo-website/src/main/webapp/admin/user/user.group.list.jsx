@@ -38,24 +38,22 @@ export default class UserGroupList extends React.Component {
                     prop: "name"
                 },
                 {
-                    label: i18n.t("user.description"),
-                    prop: "description"
+                    label: i18n.t("user.permission"),
+                    prop: "permissions"
                 },
                 {
                     label: i18n.t("user.status"),
                     prop: "status"
                 },
                 {
-                    label: i18n.t("user.createdTime"),
+                    label: i18n.t("user.updatedTime"),
                     render: function(data) {
-                        return <DateFormatter date={new Date(data.createdTime)}/>;
+                        return data.updatedTime;
                     }
                 },
                 {
-                    label: i18n.t("user.updatedTime"),
-                    render: function(data) {
-                        return <DateFormatter date={new Date(data.updatedTime)}/>;
-                    }
+                    label: i18n.t("user.updatedBy"),
+                    prop: "updatedBy"
                 },
                 {
                     label: i18n.t("user.action"),
@@ -64,9 +62,8 @@ export default class UserGroupList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text"> <Link to={{pathname: "/admin/user/group/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>
-                                {data.status === "INACTIVE" ? <Button onClick={e => this.revert(data, e)} type="text">{i18n.t("user.revert")}</Button>
-                                    : <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>}
+                                <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>
+                                <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
                             </span>
                         );
                     }.bind(this)
@@ -176,7 +173,7 @@ export default class UserGroupList extends React.Component {
                     </div>
                     <div className="toolbar-buttons">
                         <Button type="danger" style={this.state.selected.length > 0 ? {} : {"display": "none"}} onClick={() => this.batchDelete()}>{i18n.t("user.delete")}</Button>
-                        <Button type="primary"><Link to={{pathname: "/admin/user/group/create"}}>{i18n.t("user.create")}</Link></Button>
+                        <Button type="primary"><Link to={{pathname: "/admin/user/role/create"}}>{i18n.t("user.create")}</Link></Button>
                     </div>
                 </div>
                 <div className="body body--full">

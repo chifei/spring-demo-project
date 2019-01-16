@@ -122,7 +122,7 @@ class App extends React.Component {
                                     <Menu.Item index="/admin/user/list" key="/admin/user/list" className={this.isItemActive("/admin/user/list") ? "is-active" : ""}>
                                         {i18n.t('user.userList')}
                                     </Menu.Item>
-                                    <Menu.Item index="/admin/user/role" key="/admin/user/role" className={this.isItemActive("/admin/user/role") ? "is-active" : ""}>
+                                    <Menu.Item index="/admin/user/role/list" key="/admin/user/role/list" className={this.isItemActive("/admin/user/role/list") ? "is-active" : ""}>
                                         {i18n.t('user.userGroupList')}
                                     </Menu.Item>
                                 </Menu.SubMenu>
@@ -156,10 +156,7 @@ class App extends React.Component {
         if (index.startsWith("/")) {
             history.push(index);
         } else {
-            fetch("/admin/api/switch-language/" + index, {method: "GET"})
-                .then(function() {
-                    window.location.replace(window.location.href);
-                });
+            window.location.href = window.location.href + "?lang=" + index;
         }
     }
 }

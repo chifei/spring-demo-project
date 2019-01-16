@@ -8,6 +8,7 @@ import demo.user.domain.Role;
 import demo.user.domain.User;
 import demo.user.service.RoleService;
 import demo.user.service.UserService;
+import demo.user.web.role.RoleQuery;
 import demo.user.web.user.CreateUserRequest;
 import demo.user.web.user.DeleteUserRequest;
 import demo.user.web.user.LoginRequest;
@@ -111,7 +112,7 @@ public class UserAJAXController {
     }
 
     private List<UserResponse> items(List<User> users) {
-        Map<String, Role> roles = roleService.find().stream().collect(Collectors.toMap(role -> role.id, role -> role));
+        Map<String, Role> roles = roleService.find(new RoleQuery()).stream().collect(Collectors.toMap(role -> role.id, role -> role));
         return users.stream().map(user -> {
             UserResponse response = response(user);
             response.roleNames = response.roleIds.stream().map(roleId -> roles.get(roleId).name).collect(Collectors.toList());

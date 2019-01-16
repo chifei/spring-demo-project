@@ -38,12 +38,12 @@ export default class Index extends React.Component {
                 <Route exact path="/admin/user/login" component={UserLogin}/>
                 <Route exact path="/admin/user/logout" component={UserLogout}/>
                 <Route exact path="/admin/user/list" component={UserList}/>
-                <Route exact path="/admin/user/group/list" component={UserGroupList}/>
+                <Route exact path="/admin/user/role/list" component={UserGroupList}/>
                 <Route exact path="/admin/user/:id/update" component={User}/>
                 <Route exact path="/admin/user/:id/view" component={UserView}/>
                 <Route exact path="/admin/user/create" component={User}/>
-                <Route exact path="/admin/user/group/:id/update" component={UserGroup}/>
-                <Route exact path="/admin/user/group/create" component={UserGroup}/>
+                <Route exact path="/admin/user/role/:id/update" component={UserGroup}/>
+                <Route exact path="/admin/user/role/create" component={UserGroup}/>
                 <Route exact path="/admin/user/profile" component={UserProfile}/>
             </div>
         );

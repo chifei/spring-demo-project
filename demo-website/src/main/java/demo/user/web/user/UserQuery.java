@@ -14,7 +14,7 @@ public class UserQuery {
     @XmlElement(name = "roleId")
     public String roleId;
     @XmlElement(name = "page")
-    public Integer page;
+    public Integer page = 1;
     @XmlElement(name = "limit")
-    public Integer limit;
+    public Integer limit = 20;
 }

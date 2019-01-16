@@ -193,6 +193,6 @@ export default class ProductUpdate extends React.Component {
 }
 
 ProductUpdate.propTypes = {
-    match: PropTypes.object.match,
+    match: PropTypes.object,
     history: PropTypes.object.object
 };
