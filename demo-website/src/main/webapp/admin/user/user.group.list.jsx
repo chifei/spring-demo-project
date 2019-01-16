@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Form, Input, Message as alert, MessageBox, Pagination, PermissionRequired, Select, Table} from "element-react";
+import {Button, Form, Input, Message as alert, MessageBox, Pagination, Table} from "element-react";
 import {Link} from "react-router-dom";
 
 const i18n = window.i18n;
@@ -39,7 +39,7 @@ export default class UserGroupList extends React.Component {
                 {
                     label: i18n.t("user.permission"),
                     render: function(data) {
-                        return data.permissions.join(';');
+                        return data.permissions.join(";");
                     }
                 },
                 {
@@ -64,12 +64,12 @@ export default class UserGroupList extends React.Component {
                         return (
                             <span className="el-table__actions">
                                 <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/view"}}> {i18n.t("user.view")} </Link></Button>
-                                {/*<PermissionRequired permissions={["user.write"]}>*/}
-                                {/*<Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>*/}
-                                {/*</PermissionRequired>*/}
-                                {/*<PermissionRequired permissions={["user.write"]}>*/}
-                                {/*<Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>*/}
-                                {/*</PermissionRequired>*/}
+                                <ElementUI.PermissionRequired permissions={["user.write"]}>
+                                    <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>
+                                </ElementUI.PermissionRequired>
+                                <ElementUI.PermissionRequired permissions={["user.write"]}>
+                                    <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
+                                </ElementUI.PermissionRequired>
                             </span>
                         );
                     }.bind(this)
@@ -103,7 +103,6 @@ export default class UserGroupList extends React.Component {
     }
 
     delete(data) {
-        console.log(data);
         MessageBox.confirm(i18n.t("user.roleDeleteContent"), i18n.t("user.delete"), {type: "warning"}).then(() => {
             fetch("/admin/api/user/role/batch-delete", {
                 method: "POST",
@@ -158,8 +157,10 @@ export default class UserGroupList extends React.Component {
                         </Form>
                     </div>
                     <div className="toolbar-buttons">
-                        <Button type="danger" style={this.state.selected.length > 0 ? {} : {"display": "none"}} onClick={() => this.batchDelete()}>{i18n.t("user.delete")}</Button>
-                        <Button type="primary"><Link to={{pathname: "/admin/user/role/create"}}>{i18n.t("user.create")}</Link></Button>
+                        <ElementUI.PermissionRequired permissions={["user.write"]}>
+                            <Button type="danger" style={this.state.selected.length > 0 ? {} : {"display": "none"}} onClick={() => this.batchDelete()}>{i18n.t("user.delete")}</Button>
+                            <Button type="primary"><Link to={{pathname: "/admin/user/role/create"}}>{i18n.t("user.create")}</Link></Button>
+                        </ElementUI.PermissionRequired>
                     </div>
                 </div>
                 <div className="body body--full">

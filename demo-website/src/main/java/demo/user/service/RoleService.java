@@ -31,8 +31,8 @@ public class RoleService {
     public List<Role> find(RoleQuery roleQuery) {
         Query query = Query.create("SELECT t FROM Role t WHERE 1=1");
         if (roleQuery.name != null) {
-            query.append("AND t.name=:name");
-            query.param("name", roleQuery.name);
+            query.append("AND t.name like :name");
+            query.param("name", '%' + roleQuery.name + '%');
         }
         query.fetch(roleQuery.limit);
         query.from(roleQuery.limit * (roleQuery.page - 1));
@@ -42,8 +42,8 @@ public class RoleService {
     public long count(RoleQuery roleQuery) {
         Query query = Query.create("SELECT count(t) FROM Role t WHERE 1=1");
         if (roleQuery.name != null) {
-            query.append("AND t.name=:name");
-            query.param("name", roleQuery.name);
+            query.append("AND t.name like :name");
+            query.param("name", '%' + roleQuery.name + '%');
         }
         return repository.count(query);
     }

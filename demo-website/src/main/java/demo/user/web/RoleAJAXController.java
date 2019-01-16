@@ -41,7 +41,7 @@ public class RoleAJAXController {
 
     @RequestMapping(value = "/admin/api/user/role/find", method = RequestMethod.PUT)
     @PermissionRequired("user.read")
-    public RoleQueryResponse find(RoleQuery roleQuery) {
+    public RoleQueryResponse find(@RequestBody RoleQuery roleQuery) {
         RoleQueryResponse queryResponse = new RoleQueryResponse();
         queryResponse.items = roleService.find(roleQuery).stream().map(this::response).collect(Collectors.toList());
         queryResponse.total = roleService.count(roleQuery);

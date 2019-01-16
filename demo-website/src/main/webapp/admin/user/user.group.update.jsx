@@ -1,5 +1,5 @@
 import React from "react";
-import {Breadcrumb, Button, Card, Checkbox, Form, Input, Table} from "element-react";
+import {Breadcrumb, Button, Card, Form, Input, Table} from "element-react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
@@ -49,16 +49,19 @@ export default class UserGroupUpdate extends React.Component {
                     fetch("/admin/api/user/role/" + this.state.id)
                         .then((userGroup) => {
                             const selected = [];
-                            for (let i = 0; i < permissions.length; i++) {
+                            for (let i = 0; i < permissions.length; i += 1) {
                                 const permission = permissions[i];
                                 if (userGroup.permissions.includes(permission.name)) {
                                     selected.push(permission);
                                 }
                             }
-                            this.setState({userGroup: userGroup, selected: selected});
+                            this.setState({
+                                userGroup: userGroup,
+                                selected: selected
+                            });
 
                             if (this.table) {
-                                for (let i = 0; i < selected.length; i++) {
+                                for (let i = 0; i < selected.length; i += 1) {
                                     this.table.toggleRowSelection(selected[i], true);
                                 }
                             }
@@ -72,7 +75,7 @@ export default class UserGroupUpdate extends React.Component {
     select(selected) {
         const userGroup = this.state.userGroup;
         const permissions = [];
-        for (var i = 0; i < selected.length; i++) {
+        for (let i = 0; i < selected.length; i += 1) {
             permissions.push(selected[i].name);
         }
         userGroup.permissions = permissions;

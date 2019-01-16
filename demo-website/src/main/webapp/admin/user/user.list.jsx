@@ -1,12 +1,11 @@
 import React from "react";
-import {Button, Form, Input, Message as alert, MessageBox, Pagination, PermissionRequired, Select, Table} from "element-react";
+import {Button, Form, Input, Message as alert, MessageBox, Pagination, Select, Table} from "element-react";
 import {Link} from "react-router-dom";
 
 const i18n = window.i18n;
 export default class UserList extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             query: {
                 query: "",
@@ -57,12 +56,12 @@ export default class UserList extends React.Component {
                         return (
                             <span className="el-table__actions">
                                 <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/view"}}> {i18n.t("user.view")} </Link></Button>
-                                {/*<PermissionRequired permissions={["user.write"]}>*/}
-                                {/*<Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/update"}}> {i18n.t("user.update")} </Link></Button>*/}
-                                {/*</PermissionRequired>*/}
-                                {/*<PermissionRequired permissions={["user.write"]}>*/}
-                                {/*<Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>*/}
-                                {/*</PermissionRequired>*/}
+                                <ElementUI.PermissionRequired permissions={["user.write"]}>
+                                    <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/update"}}> {i18n.t("user.update")} </Link></Button>
+                                </ElementUI.PermissionRequired>
+                                <ElementUI.PermissionRequired permissions={["user.write"]}>
+                                    <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
+                                </ElementUI.PermissionRequired>
                             </span>
                         );
                     }.bind(this)
@@ -186,8 +185,10 @@ export default class UserList extends React.Component {
                         </Form>
                     </div>
                     <div className="toolbar-buttons">
-                        <Button type="danger" style={this.state.selected.length > 0 ? {} : {"display": "none"}} onClick={() => this.batchDelete()}>{i18n.t("user.delete")}</Button>
-                        <Button type="primary"> <Link to={{pathname: "/admin/user/create"}}>{i18n.t("user.create")}</Link> </Button>
+                        <ElementUI.PermissionRequired permissions={["user.write"]}>
+                            <Button type="danger" style={this.state.selected.length > 0 ? {} : {"display": "none"}} onClick={() => this.batchDelete()}>{i18n.t("user.delete")}</Button>
+                            <Button type="primary"> <Link to={{pathname: "/admin/user/create"}}>{i18n.t("user.create")}</Link> </Button>
+                        </ElementUI.PermissionRequired>
                     </div>
                 </div>
                 <div className="body body--full">

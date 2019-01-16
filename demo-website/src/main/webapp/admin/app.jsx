@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import createHistory from "history/createBrowserHistory";
 import {Route, Router, Switch} from "react-router-dom";
-import {Button, Menu} from "element-react";
+import {Button, Menu, Notification as notification} from "element-react";
 
 import "./lib/fetch";
 import "./lib/vendor";
@@ -26,7 +26,6 @@ import UserGroupUpdate from "./user/user.group.update";
 import UserGroupView from "./user/user.group.view";
 import UserLogin from "./user/user.login";
 import UserLogout from "./user/user.logout";
-import UserProfile from "./user/user.profile";
 
 const history = createHistory({basename: "/"});
 window.ElementUI.i18n.use(window.messages);
@@ -49,7 +48,7 @@ class App extends React.Component {
     }
 
     componentWillMount() {
-        fetchIntercept((response) => {
+        window.fetchIntercept((response) => {
             if (response.status === 401) {
                 window.location.href = "/login";
             }
@@ -178,7 +177,6 @@ class App extends React.Component {
                             <Route exact path="/admin/user/role/:id/update" component={UserGroupUpdate}/>
                             <Route exact path="/admin/user/role/:id/view" component={UserGroupView}/>
                             <Route exact path="/admin/user/role/create" component={UserGroupUpdate}/>
-                            <Route exact path="/admin/user/profile" component={UserProfile}/>
                             <Route component={Error404}/>
                         </Switch>
                     </Router>
