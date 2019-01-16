@@ -1,9 +1,18 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>Demo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+    <title>DEMO</title>
+    <link rel="stylesheet" type="text/css" href="/static/app.min.css"/>
 </head>
 <body>
-HI
+<div id="app"></div>
+<script type="text/javascript" th:utext="${messages}">
+</script>
+<script type="text/javascript" th:utext="${user}">
+</script>
+<script type="text/javascript" th:utext="${languages}">
+</script>
+<script type="text/javascript" src="/static/app.min.js"></script>
 </body>
 </html>

@@ -11,7 +11,6 @@ import "./css/iconfont.css";
 import "./css/font-awesome.css";
 import UserLogin from "./user/user.login"
 
-window.console.log(window.messages);
 window.ElementUI.i18n.use(window.messages);
 
 class App extends React.Component {

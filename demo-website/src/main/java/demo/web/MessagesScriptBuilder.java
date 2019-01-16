@@ -9,10 +9,10 @@ import java.util.Map;
 /**
  * @author chi
  */
-public class MessageBundleBuilder {
+public class MessagesScriptBuilder {
     private final Map<String, String> messageBundle;
 
-    public MessageBundleBuilder(Map<String, String> messageBundle) {
+    public MessagesScriptBuilder(Map<String, String> messageBundle) {
         this.messageBundle = messageBundle;
     }
 

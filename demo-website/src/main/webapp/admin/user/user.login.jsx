@@ -118,4 +118,4 @@ export default class UserLogin extends React.Component {
     }
 }
 
-UserLogin.propTypes = {history: PropTypes.object.history};
+UserLogin.propTypes = {history: PropTypes.object};

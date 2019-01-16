@@ -17,7 +17,6 @@ public class UserPreference {
     private static final CookieSpec<String> COOKIE_LANGUAGE = CookieSpec.stringKey("lang");
     @Inject
     CookieContext cookieContext;
-
     @Inject
     ServletRequest servletRequest;
 

@@ -222,5 +222,5 @@ export default class UserGroup extends React.Component {
 
 UserGroup.propTypes = {
     match: PropTypes.object.match,
-    history: PropTypes.object.history
+    history: PropTypes.object
 };

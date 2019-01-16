@@ -345,5 +345,5 @@ export default class User extends React.Component {
 
 User.propTypes = {
     match: PropTypes.object.match,
-    history: PropTypes.object.history
+    history: PropTypes.object
 };

@@ -1,43 +1,25 @@
 import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
-import {Redirect, Route, Router, Switch} from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
+import {Route, Router, Switch} from "react-router-dom";
 import {Button, Menu} from "element-react";
+
 import "./lib/fetch";
 import "./lib/vendor";
-import Error404 from "./404";
 
 import "./css/theme.css";
 import "./css/main.css";
 import "./css/iconfont.css";
 import "./css/font-awesome.css";
 
-const history = createHistory({basename: document.querySelector("base").getAttribute("href")});
+import UserIndex from "./user/user"
+import ProductIndex from "./product/product"
+import {Sticky} from "./lib/sticky";
+import Error404 from "./404";
 
-
-
-class Page extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {app: window.app};
-    }
-
-    shouldComponentUpdate() {
-        return false;
-    }
-
-    render() {
-        return (
-            <Router history={history}>
-                <Switch>
-                    <Route exact path="/admin/" render={() => <Redirect to="/admin/dashboard/report"/>}/>
-                    <Route component={Error404}/>
-                </Switch>
-            </Router>
-        );
-    }
-}
+const history = createHistory({basename: '/'});
+window.ElementUI.i18n.use(window.messages);
 
 class App extends React.Component {
     constructor(props) {
@@ -53,21 +35,16 @@ class App extends React.Component {
         history.listen((location) => {
             this.setState({pathname: location.pathname});
         });
-        window.app.menus.forEach((menu) => {
-            if (menu.children && this.isActive(menu.path)) {
-                defaultOpeneds.push(menu.path);
-            }
-        });
     }
 
-    hasRoles(roles) {
-        if (roles && roles.length) {
-            for (let i = 0; i < roles.length; i += 1) {
-                if (window.app.user.hasRole(roles[i])) {
-                    return true;
-                }
+    hasPermission(permissions) {
+        if (window.user.permissions.includes("*")) {
+            return true;
+        }
+        for (let i = 0; i < permissions.length; i += 1) {
+            if (!window.user.permissions.includes(permissions[i])) {
+                return false;
             }
-            return false;
         }
         return true;
     }
@@ -96,13 +73,13 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className={window.app.user.id ? "" : "unauthenticated"}>
+            <div className={window.user.id ? "" : "unauthenticated"}>
                 <Sticky/>
                 {!this.state.fixedMenu && this.state.shownMenu && <div className="nav__mask" onClick={() => this.toggleMenu()}></div>}
                 <div className={(this.state.shownMenu ? "nav--fixed " : "") + "nav"}>
                     <div className="nav__header">
                         <Button className="nav__toggle" type="text" icon="menu" onClick={() => this.toggleMenu()}></Button>
-                        <div className="logo">jWeb</div>
+                        <div className="logo">DEMO</div>
                         <Button className={"nav__fix" + (this.state.fixedMenu ? " nav__fix--fixed" : "")} type="text" onClick={() => this.fixMenu()}><i className="fa fa-thumb-tack"></i></Button>
                     </div>
                     <div className="menu">
@@ -119,59 +96,57 @@ class App extends React.Component {
                                 title={
                                     <span>
                                         <div className="menu-user__image">
-                                            {window.app.user.imageURL ? <img src={window.app.user.imageURL}/> : <i className="fa fa-user"/>}
+                                            {window.user.imageURL ? <img src={window.user.imageURL}/> : <i className="fa fa-user"/>}
                                         </div>
-                                        {window.app.user.nickname}
+                                        {window.user.username}
                                     </span>
                                 }>
                                 {
-                                    window.app.bundle("adminBundle").options.languages.length > 1 &&
-                                    window.app.bundle("adminBundle").options.languages.map(language =>
-                                        <Menu.Item index={language.value}
-                                            key={language.value}>
+                                    window.languages.length > 1 &&
+                                    window.languages.map(language =>
+                                        <Menu.Item index={language.language}
+                                            key={language.language}>
                                             {language.displayName}
                                         </Menu.Item>
                                     )
                                 }
                                 <Menu.Item index="/admin/user/logout"
                                     key={"item-logout"}>
-                                    {window.ElementUI.i18n.t("menu.logout")}
+                                    {i18n.t("user.logout")}
                                 </Menu.Item>
                             </Menu.SubMenu>
+
                             {
-                                window.app.menus.map((menu, i) => {
-                                    if (this.hasRoles(menu.rolesAllowed)) {
-                                        if (menu.children) {
-                                            return (
-                                                <Menu.SubMenu index={menu.path} title={menu.displayName} key={menu.path}
-                                                    className={(this.isActive(menu.path) ? "is-active" : "") + (menu.path === "/admin/setting" ? " submenu-fixed" : "")}>
-                                                    {menu.children.map((item, j) => {
-                                                        if (this.hasRoles(item.rolesAllowed)) {
-                                                            return (
-                                                                <Menu.Item index={item.path} key={"item-" + i + "-" + j} className={this.isItemActive(item.path) ? "is-active" : ""}>
-                                                                    {item.displayName}
-                                                                </Menu.Item>
-                                                            );
-                                                        }
-                                                    })}
-                                                </Menu.SubMenu>
-                                            );
-                                        }
-                                        return (
-                                            <Menu.Item index={menu.path} key={"item-" + i}
-                                                className={(this.isItemActive(menu.path) ? "is-active" : "") + (menu.path === "/admin/setting" ? " submenu-fixed" : "")}>
-                                                {menu.displayName}
-                                            </Menu.Item>
-                                        );
-                                    }
-                                })
+                                this.hasPermission(["user.read"]) && <Menu.SubMenu index='/user' title={i18n.t('user.user')} key='/user'
+                                    className={(this.isActive('/user') ? "is-active" : "")}>
+                                    <Menu.Item index="/user/list" key="/user/list" className={this.isItemActive("/user/list") ? "is-active" : ""}>
+                                        {i18n.t('user.userList')}
+                                    </Menu.Item>
+                                    <Menu.Item index="/user/role" key="/user/role" className={this.isItemActive("/user/role") ? "is-active" : ""}>
+                                        {i18n.t('user.userGroupList')}
+                                    </Menu.Item>
+                                </Menu.SubMenu>
+                            }
+
+                            {
+                                this.hasPermission(["product.read"]) &&
+                                <Menu.Item index="/product/list" key="/product/list" className={this.isItemActive("/product/list") ? "is-active" : ""}>
+                                    Product
+                                </Menu.Item>
                             }
                         </Menu>
                     </div>
                 </div>
                 <Button className="nav__toggle--fixed" type="text" icon="menu" onClick={() => this.toggleMenu()}></Button>
                 <div className={"page-container" + (this.state.pageFixed ? " page-container--fixed" : "")}>
-                    <Page/>
+                    <Router history={history}>
+                        <Switch>
+                            <UserIndex/>
+                            <ProductIndex/>
+                            <Route component={Error404}/>
+                        </Switch>
+                    </Router>
+
                 </div>
             </div>
         );

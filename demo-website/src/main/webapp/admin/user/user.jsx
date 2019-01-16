@@ -48,4 +48,4 @@ export default class Index extends React.Component {
     }
 }
 
-Index.propTypes = {history: PropTypes.object.history};
+Index.propTypes = {history: PropTypes.object};

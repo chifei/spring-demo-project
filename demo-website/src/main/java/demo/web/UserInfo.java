@@ -2,6 +2,7 @@ package demo.web;
 
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import core.framework.web.site.session.SessionContext;
 import core.framework.web.site.session.SessionKey;
 import demo.user.domain.Role;
@@ -57,5 +58,21 @@ public class UserInfo {
             }
         }
         return false;
+    }
+
+    public List<String> permissions() {
+        String userId = sessionContext.get(SessionKey.stringKey(SESSION_USER_ID));
+        User user = userService.get(userId);
+        List<String> permissions = Lists.newArrayList();
+        if (user.roleIds != null) {
+            List<String> roleIds = Splitter.on(';').splitToList(user.roleIds);
+            for (String roleId : roleIds) {
+                Role role = roleService.get(roleId);
+                if (role.permissions != null) {
+                    permissions.addAll(Splitter.on(';').splitToList(role.permissions));
+                }
+            }
+        }
+        return permissions;
     }
 }

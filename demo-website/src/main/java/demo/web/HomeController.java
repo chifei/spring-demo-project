@@ -1,12 +1,10 @@
-package demo.user.web;
+package demo.web;
 
 
 import core.framework.util.JSONBinder;
 import core.framework.web.i18n.Messages;
-import demo.web.MessagesScriptBuilder;
-import demo.web.UserPreference;
+import demo.web.interceptor.LoginRequired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,20 +12,26 @@ import javax.inject.Inject;
 import java.util.Map;
 
 /**
- * @author chi
+ * @author neo
  */
 @Controller
-public class LoginController {
+public class HomeController {
     @Inject
     Messages messages;
 
     @Inject
     UserPreference userPreference;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
-    public String login(ModelMap model) {
+    @Inject
+    UserInfo userInfo;
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @LoginRequired
+    public String home(Map<String, Object> model) {
         Map<String, String> messages = this.messages.getMessages(userPreference.locale());
         model.put("messages", "window.messages=" + JSONBinder.toJSON(new MessagesScriptBuilder(messages).build()));
-        return "/login.html";
+        model.put("user", "window.user=" + JSONBinder.toJSON(new UserInfoScriptBuilder(userInfo).build()));
+        model.put("languages", "window.languages=" + JSONBinder.toJSON(new LanguageScriptBuilder().build()));
+        return "/app.html";
     }
 }
