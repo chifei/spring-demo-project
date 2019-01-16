@@ -15,7 +15,7 @@ import java.util.Map;
  * @author neo
  */
 @Controller
-public class HomeController {
+public class AdminController {
     @Inject
     Messages messages;
 
@@ -25,7 +25,7 @@ public class HomeController {
     @Inject
     UserInfo userInfo;
 
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/", method = RequestMethod.GET)
     @LoginRequired
     public String home(Map<String, Object> model) {
         Map<String, String> messages = this.messages.getMessages(userPreference.locale());

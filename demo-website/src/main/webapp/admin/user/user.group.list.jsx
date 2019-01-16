@@ -81,7 +81,7 @@ export default class UserGroupList extends React.Component {
     }
 
     find() {
-        fetch("/admin/api/user/group/find", {
+        fetch("/admin/api/user/role/find", {
             method: "PUT",
             body: JSON.stringify(this.state.query)
         }).then((response) => {
@@ -102,7 +102,7 @@ export default class UserGroupList extends React.Component {
     revert(data) {
         dialog.confirm(i18n.t("user.userGroupRevertContent"))
             .then(() => {
-                fetch("/admin/api/user/group/" + data.id + "/revert", {method: "PUT"}).then(() => {
+                fetch("/admin/api/user/role/" + data.id + "/revert", {method: "PUT"}).then(() => {
                     this.find();
                 });
             })
@@ -115,7 +115,7 @@ export default class UserGroupList extends React.Component {
     }
 
     delete(data) {
-        fetch("/admin/api/user/group/" + data.id, {method: "DELETE"})
+        fetch("/admin/api/user/role/" + data.id, {method: "DELETE"})
             .then(() => {
                 alert({
                     type: "success",

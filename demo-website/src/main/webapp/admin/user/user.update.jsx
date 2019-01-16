@@ -70,7 +70,7 @@ export default class User extends React.Component {
     }
 
     componentWillMount() {
-        fetch("/admin/api/user/group/find", {
+        fetch("/admin/api/user/role/find", {
             method: "PUT",
             body: JSON.stringify({
                 page: 1,

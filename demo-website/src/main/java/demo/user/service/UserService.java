@@ -2,6 +2,7 @@ package demo.user.service;
 
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
 import com.google.common.hash.Hashing;
 import core.framework.database.JPAAccess;
 import core.framework.database.Query;
@@ -9,6 +10,7 @@ import demo.user.domain.User;
 import demo.user.domain.UserStatus;
 import demo.user.web.user.CreateUserRequest;
 import demo.user.web.user.LoginRequest;
+import demo.user.web.user.UserQuery;
 import demo.web.BadRequestException;
 import org.springframework.stereotype.Component;
 
@@ -42,6 +44,35 @@ public class UserService {
             return null;
         }
         return userOptional.get();
+    }
+
+    public List<User> find(UserQuery userQuery) {
+        Query query = Query.create("SELECT t FROM User t WHERE 1=1");
+        if (!Strings.isNullOrEmpty(userQuery.username)) {
+            query.append("AND t.username=:username");
+            query.param("username", userQuery.username);
+        }
+        if (!Strings.isNullOrEmpty(userQuery.roleId)) {
+            query.append("AND t.roleIds like :roleId");
+            query.param("roleId", '%' + userQuery.roleId + '%');
+        }
+        query.fetch(userQuery.limit);
+        query.from(userQuery.limit * (userQuery.page - 1));
+        return repository.find(query);
+    }
+
+
+    public long count(UserQuery userQuery) {
+        Query query = Query.create("SELECT count(t) FROM User t WHERE 1=1");
+        if (!Strings.isNullOrEmpty(userQuery.username)) {
+            query.append("AND t.username=:username");
+            query.param("username", userQuery.username);
+        }
+        if (!Strings.isNullOrEmpty(userQuery.roleId)) {
+            query.append("AND t.roleIds like :roleId");
+            query.param("roleId", '%' + userQuery.roleId + '%');
+        }
+        return repository.count(query);
     }
 
 

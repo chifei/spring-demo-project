@@ -119,10 +119,10 @@ class App extends React.Component {
                             {
                                 this.hasPermission(["user.read"]) && <Menu.SubMenu index='/user' title={i18n.t('user.user')} key='/user'
                                     className={(this.isActive('/user') ? "is-active" : "")}>
-                                    <Menu.Item index="/user/list" key="/user/list" className={this.isItemActive("/user/list") ? "is-active" : ""}>
+                                    <Menu.Item index="/admin/user/list" key="/admin/user/list" className={this.isItemActive("/admin/user/list") ? "is-active" : ""}>
                                         {i18n.t('user.userList')}
                                     </Menu.Item>
-                                    <Menu.Item index="/user/role" key="/user/role" className={this.isItemActive("/user/role") ? "is-active" : ""}>
+                                    <Menu.Item index="/admin/user/role" key="/admin/user/role" className={this.isItemActive("/admin/user/role") ? "is-active" : ""}>
                                         {i18n.t('user.userGroupList')}
                                     </Menu.Item>
                                 </Menu.SubMenu>
@@ -130,7 +130,7 @@ class App extends React.Component {
 
                             {
                                 this.hasPermission(["product.read"]) &&
-                                <Menu.Item index="/product/list" key="/product/list" className={this.isItemActive("/product/list") ? "is-active" : ""}>
+                                <Menu.Item index="/admin/product/list" key="/admin/product/list" className={this.isItemActive("/admin/product/list") ? "is-active" : ""}>
                                     Product
                                 </Menu.Item>
                             }

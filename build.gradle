@@ -36,6 +36,7 @@ project(':core') {
                 'ch.qos.logback:logback-classic:1.1.2',
                 'com.google.guava:guava:18.0',
                 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1',
+                'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.5.1',
                 'org.hibernate:hibernate-entitymanager:4.3.4.Final',
                 'javax.interceptor:javax.interceptor-api:1.2', // referred by Transactional.class
                 'org.apache.httpcomponents:httpclient:4.3.4',

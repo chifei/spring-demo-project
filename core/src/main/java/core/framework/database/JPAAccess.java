@@ -116,6 +116,16 @@ public class JPAAccess {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public long count(Query query) {
+        StopWatch watch = new StopWatch();
+        try {
+            return (Long) query.query(entityManager).getSingleResult();
+        } finally {
+            logger.debug("findOne, query={}, params={}, elapsedTime={}", query.queryString, query.params, watch.elapsedTime());
+        }
+    }
+
     private <T> T getOne(List<T> results) {
         if (results.isEmpty()) return null;
         if (results.size() > 1) {

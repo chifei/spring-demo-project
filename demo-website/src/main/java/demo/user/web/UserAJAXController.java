@@ -6,6 +6,8 @@ import demo.user.domain.User;
 import demo.user.service.UserService;
 import demo.user.web.user.LoginRequest;
 import demo.user.web.user.LoginResponse;
+import demo.user.web.user.UserQuery;
+import demo.user.web.user.UserQueryResponse;
 import demo.web.UserInfo;
 import demo.web.UserPreference;
 import org.slf4j.Logger;
@@ -16,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author chi
@@ -36,9 +36,7 @@ public class UserAJAXController {
     UserPreference userPreference;
 
     @RequestMapping(value = "/admin/api/user/login", method = RequestMethod.POST)
-    public LoginResponse login(@RequestBody LoginRequest loginRequest, HttpServletResponse response) {
-        logger.info("response" + response);
-
+    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
         User user = userService.login(loginRequest);
         LoginResponse loginResponse = new LoginResponse();
         if (user == null) {
@@ -47,9 +45,18 @@ public class UserAJAXController {
         } else {
             loginResponse.success = true;
             userInfo.setUserId(user.id);
-            loginResponse.fromURL = "/";
-            response.addCookie(new Cookie("test", "value"));
+            loginResponse.fromURL = "/admin/";
         }
         return loginResponse;
+    }
+
+    @RequestMapping(value = "/admin/api/user/find", method = RequestMethod.PUT)
+    public UserQueryResponse find(@RequestBody UserQuery userQuery) {
+        UserQueryResponse userQueryResponse = new UserQueryResponse();
+        userQueryResponse.items = userService.find(userQuery);
+        userQueryResponse.page = userQuery.page;
+        userQueryResponse.limit = userQuery.limit;
+        userQueryResponse.total = userService.count(userQuery);
+        return userQueryResponse;
     }
 }

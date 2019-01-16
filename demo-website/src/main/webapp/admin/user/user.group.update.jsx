@@ -63,7 +63,7 @@ export default class UserGroup extends React.Component {
             this.setState({allRoles: allRoles});
         });
         if (typeof this.state.id !== "undefined") {
-            fetch("/admin/api/user/group/" + this.state.id)
+            fetch("/admin/api/user/role/" + this.state.id)
                 .then((response) => {
                     this.setState({userGroup: response});
                     const roles = this.state.userGroup.roles, allRoles = this.state.allRoles;
@@ -160,7 +160,7 @@ export default class UserGroup extends React.Component {
     update() {
         this.userGroupForm.validate((valid) => {
             if (valid) {
-                fetch("/admin/api/user/group/" + this.state.id, {
+                fetch("/admin/api/user/role/" + this.state.id, {
                     method: "put",
                     body: JSON.stringify(this.state.userGroup)
                 }).then(() => {

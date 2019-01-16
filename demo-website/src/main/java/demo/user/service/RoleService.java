@@ -3,6 +3,7 @@ package demo.user.service;
 
 import com.google.common.base.Joiner;
 import core.framework.database.JPAAccess;
+import core.framework.database.Query;
 import demo.user.domain.Role;
 import demo.user.web.role.CreateRoleRequest;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -22,6 +24,14 @@ public class RoleService {
 
     public Role get(String id) {
         return repository.get(Role.class, id);
+    }
+
+    public List<Role> find() {
+        return repository.find(Query.create("SELECT t FROM Role t"));
+    }
+
+    public long count() {
+        return repository.count(Query.create("SELECT count(t) FROM Role t"));
     }
 
     @Transactional

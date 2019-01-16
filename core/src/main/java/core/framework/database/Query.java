@@ -9,7 +9,7 @@ import java.util.Map;
  * @author neo
  */
 public final class Query {
-    final String queryString;
+    String queryString;
     final Map<String, Object> params = Maps.newHashMap();
     Integer from;
     Integer size;
@@ -20,6 +20,11 @@ public final class Query {
 
     public static Query create(String queryString) {
         return new Query(queryString);
+    }
+
+    public Query append(String queryString) {
+        this.queryString += ' ' + queryString;
+        return this;
     }
 
     public Query param(String key, Object value) {

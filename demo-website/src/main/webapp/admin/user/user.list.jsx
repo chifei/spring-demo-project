@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DateFormatter, Form, Input, Message as alert, MessageBox as dialog, Pagination, Select, Table} from "element-react";
+import {Button, DateFormatter, Form, Input, Message as alert, Pagination, Select, Table} from "element-react";
 import {Link} from "react-router-dom";
 
 const i18n = window.i18n;
@@ -24,40 +24,11 @@ export default class UserList extends React.Component {
                 items: []
             },
             limitOptions: [20, 50, 100],
-            statusOptions: [
-                {
-                    label: i18n.t("user.statusActive"),
-                    value: "ACTIVE"
-                },
-                {
-                    label: i18n.t("user.statusInactive"),
-                    value: "INACTIVE"
-                },
-                {
-                    label: i18n.t("user.statusLocked"),
-                    value: "LOCKED"
-                }
-            ],
             columns: [
                 {type: "selection"},
                 {
-                    label: i18n.t("user.icon"),
-                    prop: "imageURL",
-                    width: 100,
-                    render: function(user) {
-                        return <img style={{
-                            "max-height": "32px",
-                            "vertical-align": "middle"
-                        }} src={"/admin" + user.imageURL}/>;
-                    }
-                },
-                {
                     label: i18n.t("user.username"),
                     prop: "username"
-                },
-                {
-                    label: i18n.t("user.phone"),
-                    prop: "phone"
                 },
                 {
                     label: i18n.t("user.email"),
@@ -73,15 +44,9 @@ export default class UserList extends React.Component {
                     width: 100
                 },
                 {
-                    label: i18n.t("user.createdTime"),
-                    render: function(data) {
-                        return <DateFormatter date={new Date(data.createdTime)}/>;
-                    }
-                },
-                {
                     label: i18n.t("user.updatedTime"),
                     render: function(data) {
-                        return <DateFormatter date={new Date(data.updatedTime)}/>;
+                        return data.updatedTime;
                     }
                 },
                 {
@@ -92,10 +57,7 @@ export default class UserList extends React.Component {
                         return (
                             <span className="el-table__actions">
                                 <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/update"}}> {i18n.t("user.update")} </Link></Button>
-                                {data.status === "INACTIVE" ? <Button onClick={e => this.revert(data, e)} type="text">{i18n.t("user.revert")}</Button>
-                                    : <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>}
-                                {data.status === "LOCKED" ? <Button type="text" onClick={e => this.updateStatus(data)}> {i18n.t("user.unlock")} </Button>
-                                    : <Button type="text" onClick={e => this.updateStatus(data)}> {i18n.t("user.lock")} </Button>}
+                                <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
                             </span>
                         );
                     }.bind(this)
@@ -108,7 +70,7 @@ export default class UserList extends React.Component {
     }
 
     componentWillMount() {
-        fetch("/admin/api/user/group/find", {
+        fetch("/admin/api/user/role/find", {
             method: "PUT",
             body: JSON.stringify({
                 page: 1,
@@ -144,15 +106,6 @@ export default class UserList extends React.Component {
         );
     }
 
-    statusChange(key, value) {
-        const status = value ? value : null;
-        this.setState(
-            {query: Object.assign(this.state.query, {[key]: status})}
-        );
-
-        this.find();
-    }
-
     roleChange(key, value) {
         this.setState(
             {query: Object.assign(this.state.query, {[key]: value})}
@@ -163,35 +116,6 @@ export default class UserList extends React.Component {
 
     select(selected) {
         this.setState({selected: selected});
-    }
-
-    updateStatus(data) {
-        if (data.status === "LOCKED") {
-            data.status = "ACTIVE";
-        } else {
-            data.status = "LOCKED";
-        }
-        fetch("/admin/api/user/" + data.id, {
-            method: "put",
-            body: JSON.stringify(data)
-        }).then(() => {
-            this.find();
-        });
-    }
-
-    revert(data) {
-        dialog.confirm(i18n.t("user.userRevertContent"))
-            .then(() => {
-                fetch("/admin/api/user/" + data.id + "/revert", {method: "PUT"}).then(() => {
-                    this.find();
-                });
-            })
-            .catch(() => {
-                alert({
-                    type: "info",
-                    message: i18n.t("user.revertCancelContent")
-                });
-            });
     }
 
     delete(data) {
@@ -236,24 +160,12 @@ export default class UserList extends React.Component {
                                     loading={this.state.userGroupLoading}
                                     placeholder={i18n.t("user.userGroup")}
                                     clearable={true}
-                                    onChange={value => this.roleChange("userGroupId", value)}>
+                                    onChange={value => this.roleChange("roleId", value)}>
                                     {this.state.userGroupOptions.map(el => <Select.Option key={el.value} label={el.label} value={el.value}/>)}
                                 </Select>
                             </Form.Item>
                             <Form.Item>
-                                <Select
-                                    value={this.state.query.status}
-                                    placeholder={i18n.t("user.status")}
-                                    clearable={true}
-                                    onChange={value => this.statusChange("status", value)}>
-                                    {
-                                        this.state.statusOptions.map(el => <Select.Option key={el.value}
-                                            label={el.label} value={el.value}/>)
-                                    }
-                                </Select>
-                            </Form.Item>
-                            <Form.Item>
-                                <Input value={this.state.query.query} onChange={value => this.queryChange("query", value)} icon="fa fa-search"/>
+                                <Input value={this.state.query.username} onChange={value => this.queryChange("username", value)} icon="fa fa-search"/>
                             </Form.Item>
                             <Form.Item>
                                 <Button onClick={() => this.find()}>{i18n.t("user.search")}</Button>

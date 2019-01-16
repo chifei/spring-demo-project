@@ -104,6 +104,6 @@ public class WebConfig extends DefaultSiteConfig {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("forward:/home");
+        registry.addViewController("/").setViewName("forward:/admin/");
     }
 }
