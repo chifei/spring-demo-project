@@ -4,10 +4,7 @@ import demo.product.domain.Product;
 import demo.product.service.ProductService;
 import demo.product.web.product.*;
 import demo.web.UserInfo;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.stream.Collectors;
@@ -15,6 +12,7 @@ import java.util.stream.Collectors;
 /**
  * @author chi
  */
+@RestController
 public class ProductAJAXController {
 
     @Inject
@@ -28,7 +26,7 @@ public class ProductAJAXController {
         return response(product);
     }
 
-    @RequestMapping(value = "/admin/api/product/find", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/api/product/find", method = RequestMethod.PUT)
     public ProductQueryResponse find(@RequestBody ProductQuery productQuery) {
         ProductQueryResponse productQueryResponse = new ProductQueryResponse();
         productQueryResponse.items = productService.find(productQuery).stream().map(product -> {

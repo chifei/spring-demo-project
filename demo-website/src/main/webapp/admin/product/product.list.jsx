@@ -1,20 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Button, Form, Input, Message as notification, Pagination, Select, Table} from "element-react";
+import {Button, Form, Input, Message as notification, MessageBox, Pagination, Select, Table} from "element-react";
 
 const i18n = window.i18n;
 export default class ProductList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            selected: [],
             limitOptions: [20, 50, 100],
-            statusOptions: [{
-                value: "ACTIVE",
-                label: "ACTIVE"
-            }, {
-                value: "INACTIVE",
-                label: "INACTIVE"
-            }],
             query: {
                 name: null,
                 status: null,
@@ -27,46 +21,33 @@ export default class ProductList extends React.Component {
                 limit: 0,
                 items: []
             },
-            selected: [],
             columns: [
+                {type: "selection"},
                 {
                     label: i18n.t("product.name"),
-                    prop: "displayName",
-                    width: 200,
+                    prop: "name"
+                },
+                {
+                    label: i18n.t("product.description"),
+                    prop: "description"
+                },
+                {
+                    label: i18n.t("product.updatedTime"),
                     render: function(data) {
-                        return (
-                            <a href={data.originalURL} target="_blank">{data.displayName}</a>
-                        );
+                        return data.updatedTime;
                     }
                 },
                 {
-                    label: i18n.t("product.parentSku"),
-                    prop: "parentSku"
-                },
-                {
-                    label: i18n.t("product.vendorNumber"),
-                    prop: "vendorNumber"
-                },
-                {
-                    label: i18n.t("product.price"),
-                    prop: "price"
-                },
-                {
-                    label: i18n.t("product.createdTime"),
-                    width: 200,
-                    render: function(data) {
-                        return (
-                            <ElementUI.DateFormatter date={data.createdTime}/>
-                        );
-                    }
+                    label: i18n.t("product.updatedBy"),
+                    prop: "updatedBy"
                 },
                 {
                     label: i18n.t("product.action"),
                     width: 200,
+                    fixed: "right",
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text" size="mini">{i18n.t("product.delete")}</Button>
                                 <Button type="text" size="mini"><Link to={{pathname: "/admin/product/" + data.id + "/update"}}>{i18n.t("product.edit")}</Link></Button>
                             </span>
                         );
@@ -92,71 +73,37 @@ export default class ProductList extends React.Component {
         this.find();
     }
 
-    statusChange(value) {
-        let status = value;
-        if (!value) {
-            status = null;
-        }
-        this.setState({query: Object.assign(this.state.query, {status: status})}, () => {
-            this.find();
-        });
+    queryChange(key, value) {
+        this.setState(
+            {query: Object.assign(this.state.query, {[key]: value})}
+        );
     }
 
-    queryChange(key, value, find) {
-        if (find) {
-            this.setState({query: Object.assign(this.state.query, {[key]: value})}, () => {
-                this.find();
-            });
-        } else {
-            this.setState({query: Object.assign(this.state.query, {[key]: value})});
-        }
+    select(selected) {
+        this.setState({selected: selected});
     }
 
-    select(item, checked) {
-        const list = this.state.selected;
-        if (checked) {
-            list.push(item);
-        } else {
-            for (let i = 0; i < list.length; i += 1) {
-                if (list[i].id === item.id) {
-                    list.splice(i, 1);
+    batchDelete() {
+        MessageBox.confirm(i18n.t("product.productDeleteContent"), i18n.t("product.delete"), {type: "warning"})
+            .then(() => {
+                const list = this.state.selected, ids = [];
+                if (list.length === 0) {
+                    return;
                 }
-            }
-
-        }
-        this.setState({selected: list});
-    }
-
-    batchSelect(list, checked) {
-        if (checked) {
-            this.setState({selected: list});
-        } else {
-            this.setState({selected: []});
-        }
-    }
-
-    batchDelete(e) {
-        e.preventDefault();
-        const list = this.state.selected;
-        if (list.length === 0) {
-            return;
-        }
-        const ids = [];
-        for (let i = 0; i < list.length; i += 1) {
-            ids.push(list[i].id);
-        }
-        fetch("/admin/api/product/batch-delete", {
-            method: "POST",
-            body: JSON.stringify({ids: ids})
-        }).then(() => {
-            notification({
-                title: i18n.t("product.successTitle"),
-                type: "success",
-                message: i18n.t("product.deleteSuccessMessage")
+                for (let i = 0; i < list.length; i += 1) {
+                    ids.push(list[i].id);
+                }
+                fetch("/admin/api/product/batch-delete", {
+                    method: "POST",
+                    body: JSON.stringify({ids: ids})
+                }).then(() => {
+                    notification({
+                        type: "success",
+                        message: i18n.t("product.deleteSuccessContent")
+                    });
+                    this.find();
+                });
             });
-            this.setState({selected: []});
-            this.find();
-        });
     }
 
     render() {
@@ -166,12 +113,7 @@ export default class ProductList extends React.Component {
                     <div className="toolbar-form">
                         <Form inline={true} model={this.state.query}>
                             <Form.Item>
-                                <Select placeholder={i18n.t("product.statusPlaceHolder")} value={this.state.query.status} onChange={k => this.statusChange(k)} clearable={true}>{
-                                    this.state.statusOptions.map(el => <Select.Option key={el.value} label={el.label} value={el.value}/>)
-                                }</Select>
-                            </Form.Item>
-                            <Form.Item>
-                                <Input icon="fa fa-search" value={this.state.query.name} placeholder={i18n.t("product.queryPlaceHolder")} onChange={k => this.queryChange("name", k)}/>
+                                <Input icon="fa fa-search" value={this.state.query.name} placeholder={i18n.t("product.queryPlaceHolder")} onChange={value => this.queryChange("name", value)}/>
                             </Form.Item>
                             <Form.Item>
                                 <Button nativeType="button" onClick={e => this.search(e)}>{i18n.t("product.search")}</Button>
@@ -179,7 +121,7 @@ export default class ProductList extends React.Component {
                         </Form>
                     </div>
                     <div className="toolbar-buttons">
-                        {this.state.selected.length > 0 ? <Button type="danger" onClick={e => this.batchDelete(e)} nativeType="button">{i18n.t("product.batchDelete")}</Button> : ""}
+                        {this.state.selected.length > 0 ? <Button type="danger" onClick={() => this.batchDelete()} nativeType="button">{i18n.t("product.delete")}</Button> : ""}
                         <Button type="primary" nativeType="button">
                             <Link to={{pathname: "/admin/product/create"}}>
                                 {i18n.t("product.createProduct")}
@@ -188,13 +130,12 @@ export default class ProductList extends React.Component {
                     </div>
                 </div>
                 <div className="body body--full">
-                    <Table
-                        stripe={true}
-                        columns={this.state.columns}
-                        data={this.state.data.items}
-                        onSelectChange={(dataItem, checked) => this.select(dataItem.id, checked)}
-                        onSelectAll={(dataList, checked) => this.batchSelect(dataList, checked)}
-                    />
+                    <Table style={{width: "100%"}}
+                           stripe={true}
+                           highlightCurrentRow={true}
+                           columns={this.state.columns}
+                           data={this.state.data.items}
+                           onSelectChange={selected => this.select(selected)}/>
                 </div>
                 <div className="footer">
                     <Pagination layout="total,sizes,prev,pager,next,jumper" total={this.state.data.total} pageSizes={this.state.limitOptions} pageSize={this.state.query.limit}

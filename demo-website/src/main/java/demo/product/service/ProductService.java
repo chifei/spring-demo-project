@@ -7,6 +7,7 @@ import demo.product.domain.Product;
 import demo.product.web.product.CreateProductRequest;
 import demo.product.web.product.ProductQuery;
 import demo.product.web.product.UpdateProductRequest;
+import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -17,6 +18,7 @@ import java.util.UUID;
 /**
  * @author chi
  */
+@Component
 public class ProductService {
     @Inject
     JPAAccess repository;
@@ -28,8 +30,8 @@ public class ProductService {
     public List<Product> find(ProductQuery productQuery) {
         Query query = Query.create("SELECT t FROM Product t WHERE 1=1");
         if (!Strings.isNullOrEmpty(productQuery.name)) {
-            query.append("AND t.name=:name");
-            query.param("name", productQuery.name);
+            query.append("AND t.name like :name");
+            query.param("name", "%" + productQuery.name + "%");
         }
         query.fetch(productQuery.limit);
         query.from(productQuery.limit * (productQuery.page - 1));
@@ -39,8 +41,8 @@ public class ProductService {
     public long count(ProductQuery productQuery) {
         Query query = Query.create("SELECT count(t) FROM Product t WHERE 1=1");
         if (!Strings.isNullOrEmpty(productQuery.name)) {
-            query.append("AND t.name=:name");
-            query.param("name", productQuery.name);
+            query.append("AND t.name like :name");
+            query.param("name", "%" + productQuery.name + "%");
         }
         return repository.count(query);
     }
