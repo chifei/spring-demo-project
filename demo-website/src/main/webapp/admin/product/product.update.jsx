@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Breadcrumb, Button, Card, Form, Input, Select, Upload} from "element-react";
+import {Breadcrumb, Button, Card, Form, Input} from "element-react";
 import PropTypes from "prop-types";
 
 const i18n = window.i18n;
@@ -9,15 +9,14 @@ export default class ProductUpdate extends React.Component {
         super(props);
         this.state = {
             id: props.match.params.id,
-            form: {
-            },
+            form: {},
             rules: {
                 name: [{
                     required: true,
                     message: window.ElementUI.i18n.t("product.nameRule"),
                     trigger: "blur"
                 }]
-            },
+            }
         };
     }
 
@@ -66,8 +65,10 @@ export default class ProductUpdate extends React.Component {
                 <div className="toolbar">
                     <div className="toolbar-form">
                         <Breadcrumb separator="/">
-                            <Breadcrumb.Item><Link to={{pathname: "/admin/"}}>{i18n.t("product.home")}</Link></Breadcrumb.Item>
-                            <Breadcrumb.Item><Link to={{pathname: "/admin/product/list"}}>{i18n.t("product.productList")}</Link></Breadcrumb.Item>
+                            <Breadcrumb.Item><Link
+                                to={{pathname: "/admin/"}}>{i18n.t("product.home")}</Link></Breadcrumb.Item>
+                            <Breadcrumb.Item><Link
+                                to={{pathname: "/admin/product/list"}}>{i18n.t("product.productList")}</Link></Breadcrumb.Item>
                             <Breadcrumb.Item>{this.state.id ? i18n.t("product.updateProduct") : i18n.t("product.createProduct")}</Breadcrumb.Item>
                         </Breadcrumb>
                     </div>
