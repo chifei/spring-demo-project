@@ -1,7 +1,5 @@
 package demo.user.web.user;
 
-import demo.user.domain.User;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,5 +17,5 @@ public class UserQueryResponse {
     @XmlElement(name = "limit")
     public Integer limit;
     @XmlElement(name = "items")
-    public List<User> items;
+    public List<UserResponse> items;
 }

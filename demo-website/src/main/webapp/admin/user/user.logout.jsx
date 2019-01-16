@@ -6,4 +6,8 @@ export default class UserLogout extends React.Component {
             window.location.href = "/admin/";
         });
     }
+
+    render() {
+        return <br/>
+    }
 }

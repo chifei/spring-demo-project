@@ -32,4 +32,10 @@ public class ExceptionControllerAdvice {
         response.setStatus(HttpStatus.NOT_FOUND.value());
         return new ModelAndView("/404.html", Maps.newHashMap());
     }
+
+    @ExceptionHandler
+    public ModelAndView error(BadRequestException exception, HttpServletResponse response) {
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        return new ModelAndView("/400.html", Maps.newHashMap());
+    }
 }

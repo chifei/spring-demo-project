@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import UserList from "./user.list";
 import UserGroupList from "./user.group.list";
 import User from "./user.update";
+import UserView from "./user.view";
 import UserGroup from "./user.group.update";
 import UserLogin from "./user.login";
 import UserLogout from "./user.logout";
@@ -39,6 +40,7 @@ export default class Index extends React.Component {
                 <Route exact path="/admin/user/list" component={UserList}/>
                 <Route exact path="/admin/user/group/list" component={UserGroupList}/>
                 <Route exact path="/admin/user/:id/update" component={User}/>
+                <Route exact path="/admin/user/:id/view" component={UserView}/>
                 <Route exact path="/admin/user/create" component={User}/>
                 <Route exact path="/admin/user/group/:id/update" component={UserGroup}/>
                 <Route exact path="/admin/user/group/create" component={UserGroup}/>

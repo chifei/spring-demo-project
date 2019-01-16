@@ -75,4 +75,8 @@ public class UserInfo {
         }
         return permissions;
     }
+
+    public void logout() {
+        sessionContext.invalidate();
+    }
 }

@@ -27,7 +27,13 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/", method = RequestMethod.GET)
     @LoginRequired
-    public String home(Map<String, Object> model) {
+    public String index(Map<String, Object> model) {
+        return admin(model);
+    }
+
+    @RequestMapping(value = "/admin/**/*", method = RequestMethod.GET)
+    @LoginRequired
+    public String admin(Map<String, Object> model) {
         Map<String, String> messages = this.messages.getMessages(userPreference.locale());
         model.put("messages", "window.messages=" + JSONBinder.toJSON(new MessagesScriptBuilder(messages).build()));
         model.put("user", "window.user=" + JSONBinder.toJSON(new UserInfoScriptBuilder(userInfo).build()));

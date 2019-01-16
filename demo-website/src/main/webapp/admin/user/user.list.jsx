@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, DateFormatter, Form, Input, Message as alert, Pagination, Select, Table} from "element-react";
+import {Button, DateFormatter, Form, Input, Message as alert, MessageBox, Pagination, Select, Table} from "element-react";
 import {Link} from "react-router-dom";
 
 const i18n = window.i18n;
@@ -56,6 +56,7 @@ export default class UserList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
+                                <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/view"}}> {i18n.t("user.view")} </Link></Button>
                                 <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/update"}}> {i18n.t("user.update")} </Link></Button>
                                 <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
                             </span>
@@ -119,33 +120,43 @@ export default class UserList extends React.Component {
     }
 
     delete(data) {
-        fetch("/admin/api/user/" + data.id, {method: "DELETE"})
-            .then(() => {
+        MessageBox.confirm(i18n.t("user.userDeleteContent"), i18n.t("user.delete"), {
+            type: 'warning'
+        }).then(() => {
+            fetch("/admin/api/user/batch-delete", {
+                method: "POST",
+                body: JSON.stringify({ids: [data.id]})
+            }).then(() => {
                 alert({
                     type: "success",
                     message: i18n.t("user.deleteSuccessContent")
                 });
                 this.find();
             });
+        });
     }
 
     batchDelete() {
-        const list = this.state.selected, ids = [];
-        if (list.length === 0) {
-            return;
-        }
-        for (let i = 0; i < list.length; i += 1) {
-            ids.push(list[i].id);
-        }
-        fetch("/admin/api/user", {
-            method: "PUT",
-            body: JSON.stringify({ids: ids})
+        MessageBox.confirm(i18n.t("user.userDeleteContent"), i18n.t("user.delete"), {
+            type: 'warning'
         }).then(() => {
-            alert({
-                type: "success",
-                message: i18n.t("user.deleteSuccessContent")
+            const list = this.state.selected, ids = [];
+            if (list.length === 0) {
+                return;
+            }
+            for (let i = 0; i < list.length; i += 1) {
+                ids.push(list[i].id);
+            }
+            fetch("/admin/api/user/delete", {
+                method: "POST",
+                body: JSON.stringify({ids: ids})
+            }).then(() => {
+                alert({
+                    type: "success",
+                    message: i18n.t("user.deleteSuccessContent")
+                });
+                this.find();
             });
-            this.find();
         });
     }
 

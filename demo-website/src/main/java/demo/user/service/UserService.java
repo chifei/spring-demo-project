@@ -10,6 +10,8 @@ import demo.user.domain.User;
 import demo.user.domain.UserStatus;
 import demo.user.web.user.CreateUserRequest;
 import demo.user.web.user.LoginRequest;
+import demo.user.web.user.UpdateUserPasswordRequest;
+import demo.user.web.user.UpdateUserRequest;
 import demo.user.web.user.UserQuery;
 import demo.web.BadRequestException;
 import org.springframework.stereotype.Component;
@@ -19,7 +21,6 @@ import javax.transaction.Transactional;
 import java.security.SecureRandom;
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -30,6 +31,41 @@ import java.util.UUID;
 public class UserService {
     @Inject
     JPAAccess repository;
+
+    public List<User> batchGet(List<String> ids) {
+        StringBuilder b = new StringBuilder();
+        b.append("SELECT t FROM User t WHERE t.id in (");
+        int MAX_GROUP_COUNT = 1000;
+        for (int i = 0; i < ids.size(); i++) {
+            int index = i % MAX_GROUP_COUNT;
+            if (i != 0 && index == 0) {
+                b.append(") OR t.id in (");
+            } else if (index != 0) {
+                b.append(',');
+            }
+            b.append('"').append(ids.get(i)).append('"');
+        }
+        b.append(')');
+        return repository.find(Query.create(b.toString()));
+    }
+
+    @Transactional
+    public void batchDelete(List<String> ids) {
+        StringBuilder b = new StringBuilder();
+        b.append("DELETE FROM User t WHERE t.id in (");
+        int MAX_GROUP_COUNT = 1000;
+        for (int i = 0; i < ids.size(); i++) {
+            int index = i % MAX_GROUP_COUNT;
+            if (i != 0 && index == 0) {
+                b.append(") OR t.id in (");
+            } else if (index != 0) {
+                b.append(',');
+            }
+            b.append("'").append(ids.get(i)).append("'");
+        }
+        b.append(')');
+        repository.update(Query.create(b.toString()));
+    }
 
     public User login(LoginRequest request) {
         Optional<User> userOptional = findByUsername(request.username);
@@ -102,6 +138,23 @@ public class UserService {
         return user;
     }
 
+    @Transactional
+    public User update(String id, UpdateUserRequest request) {
+        User user = get(id);
+        if (request.email != null) {
+            Optional<User> duplicateEmailUser = findByEmail(request.email);
+            if (duplicateEmailUser.isPresent() && !duplicateEmailUser.get().id.equals(id)) {
+                throw new BadRequestException("user.duplicatedEmail");
+            }
+            user.email = request.email;
+        }
+        user.roleIds = request.roleIds == null ? null : Joiner.on(';').join(request.roleIds);
+        user.updatedTime = OffsetDateTime.now();
+        user.updatedBy = request.requestBy;
+        repository.update(user);
+        return user;
+    }
+
     public User get(String id) {
         return repository.get(User.class, id);
     }
@@ -122,7 +175,7 @@ public class UserService {
     }
 
     public Optional<User> findByUsername(String username) {
-        List<User> users = repository.find(Query.create("SELECT t FROM User t WHERE t.username=:username").param("username", username.toLowerCase(Locale.ENGLISH)));
+        List<User> users = repository.find(Query.create("SELECT t FROM User t WHERE t.username=:username").param("username", username));
         if (users.isEmpty()) {
             return Optional.empty();
         }
@@ -130,10 +183,21 @@ public class UserService {
     }
 
     public Optional<User> findByEmail(String email) {
-        List<User> users = repository.find(Query.create("SELECT t FROM User t WHERE t.email=:email").param("email", email.toLowerCase(Locale.ENGLISH)));
+        List<User> users = repository.find(Query.create("SELECT t FROM User t WHERE t.email=:email").param("email", email));
         if (users.isEmpty()) {
             return Optional.empty();
         }
         return Optional.of(users.get(0));
+    }
+
+    @Transactional
+    public void updatePassword(String id, UpdateUserPasswordRequest request) {
+        User user = get(id);
+        user.salt = salt();
+        user.iteration = (int) (System.currentTimeMillis() % 4 + 1);
+        user.hashedPassword = new PasswordHasher(user.salt, request.password).hash(user.iteration);
+        user.updatedBy = request.requestBy;
+        user.updatedTime = OffsetDateTime.now();
+        repository.update(user);
     }
 }

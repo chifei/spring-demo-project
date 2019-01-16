@@ -172,14 +172,10 @@ export default class User extends React.Component {
                         <Breadcrumb separator="/">
                             <Breadcrumb.Item><Link to="/admin">{window.ElementUI.i18n.t("user.home")}</Link></Breadcrumb.Item>
                             <Breadcrumb.Item><Link to="/admin/user/list">{window.ElementUI.i18n.t("user.userList")}</Link></Breadcrumb.Item>
-                            <Breadcrumb.Item>
-                                {this.state.id
-                                    ? window.i18n.t("user.updateUser")
-                                    : window.i18n.t("user.createUser")}</Breadcrumb.Item>
+                            <Breadcrumb.Item>{window.i18n.t("user.view")}</Breadcrumb.Item>
                         </Breadcrumb>
                     </div>
                     <div className="toolbar-buttons">
-                        <Button type="primary" onClick={() => this.update()}>{window.ElementUI.i18n.t("user.save")}</Button>
                         <Button type="button"><Link to="/admin/user/list">{window.ElementUI.i18n.t("user.cancel")}</Link></Button>
                     </div>
                 </div>
@@ -189,52 +185,19 @@ export default class User extends React.Component {
                             this.userForm = c;
                         }} labelWidth="150">
                             <Form.Item label={window.ElementUI.i18n.t("user.username")} prop="username">
-                                <Input value={this.state.user.username} onChange={value => this.onChange("username", value)} disabled={this.state.user.id !== null}/>
+                                <Input value={this.state.user.username} onChange={value => this.onChange("username", value)} disabled={true}/>
 
                             </Form.Item>
 
-                            {
-                                !this.state.id &&
-                                <Form.Item label={window.ElementUI.i18n.t("user.password")} prop="password">
-                                    <Input type="password" value={this.state.user.password} onChange={value => this.onChange("password", value)}/>
-                                </Form.Item>
-                            }
-
-                            {
-                                this.state.id &&
-                                <Form.Item label={window.ElementUI.i18n.t("user.password")} prop="password">
-                                    <Button onClick={() => this.setState({updatePasswordVisible: true})}>{window.ElementUI.i18n.t("user.updatePassword")}</Button>
-                                </Form.Item>
-                            }
                             <Form.Item label={window.ElementUI.i18n.t("user.email")} prop="email">
-                                <Input value={this.state.user.email} onChange={value => this.onChange("email", value)}/>
+                                <Input value={this.state.user.email} onChange={value => this.onChange("email", value)} disabled={true}/>
                             </Form.Item>
                             <Form.Item label={window.ElementUI.i18n.t("user.userGroup")} prop="userGroup">
-                                <Select value={this.state.user.roleIds} loading={this.state.userGroupLoading} multiple={true} onChange={selected => this.userGroupIdsChange(selected)}>
+                                <Select value={this.state.user.roleIds} loading={this.state.userGroupLoading} disabled={true} multiple={true} onChange={selected => this.userGroupIdsChange(selected)}>
                                     {this.state.userGroupOptions.map(el => <Select.Option key={el.value} label={el.label} value={el.value}/>)}
                                 </Select>
                             </Form.Item>
                         </Form>
-                        <Dialog title={window.ElementUI.i18n.t("user.updatePassword")} visible={this.state.updatePasswordVisible}
-                            onCancel={() => this.setState({updatePasswordVisible: false})}>
-                            <Dialog.Body>
-                                <Form model={this.state.changePasswordRequest} rules={this.state.changePasswordRules} ref={(c) => {
-                                    this.changePasswordForm = c;
-                                }} labelWidth="120">
-                                    <Form.Item label={window.ElementUI.i18n.t("user.password")} prop="password">
-                                        <Input type="password" value={this.state.changePasswordRequest.password} onChange={value => this.updatePasswordChange("password", value)}/>
-                                    </Form.Item>
-                                    <Form.Item label={window.ElementUI.i18n.t("user.confirmPassword")} prop="confirmPassword">
-                                        <Input type="password" value={this.state.changePasswordRequest.confirmPassword}
-                                            onChange={value => this.updatePasswordChange("confirmPassword", value)}/>
-                                    </Form.Item>
-                                </Form>
-                            </Dialog.Body>
-                            <Dialog.Footer className="dialog-footer">
-                                <Button onClick={() => this.setState({updatePasswordVisible: false})}>{window.ElementUI.i18n.t("user.cancel")}</Button>
-                                <Button type="primary" onClick={() => this.updatePassword()}>{window.ElementUI.i18n.t("user.submit")}</Button>
-                            </Dialog.Footer>
-                        </Dialog>
                     </Card>
                 </div>
             </div>
