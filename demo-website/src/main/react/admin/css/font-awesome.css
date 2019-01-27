@@ -1,0 +1,200 @@
+@import url("../../node_modules/font-awesome/css/font-awesome.min.css");
+
+.el-icon-fa {
+    display: inline-block;
+    font-family: FontAwesome !important;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.el-icon-fa:before {
+    vertical-align: middle;
+}
+
+[class*=" el-icon-"], [class^=el-icon-] {
+    display: inline-block;
+    font-family: FontAwesome !important;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.el-icon-arrow-down:before {
+    content: "\f107"
+}
+
+.el-icon-arrow-left:before {
+    content: "\f104"
+}
+
+.el-icon-arrow-right:before {
+    content: "\f105"
+}
+
+.el-icon-arrow-up:before {
+    content: "\f106"
+}
+
+.el-icon-caret-bottom:before {
+    content: "\f107"
+}
+
+.el-icon-caret-left:before {
+    content: "\f104"
+}
+
+.el-icon-caret-right:before {
+    content: "\f105"
+}
+
+.el-icon-caret-top:before {
+    content: "\f106"
+}
+
+.el-icon-check:before {
+    content: "\f00c"
+}
+
+.el-icon-circle-check:before {
+    content: "\f058"
+}
+
+.el-icon-circle-close:before {
+    content: "\f057"
+}
+
+.el-icon-circle-cross:before {
+    content: "\f057"
+}
+
+.el-icon-close:before {
+    content: "\f00d"
+}
+
+.el-icon-upload:before {
+    content: "\f0ee"
+}
+
+.el-icon-d-arrow-left:before {
+    content: "\f100"
+}
+
+.el-icon-d-arrow-right:before {
+    content: "\f101"
+}
+
+.el-icon-d-caret:before {
+    content: "\f0dc"
+}
+
+.el-icon-date:before {
+    content: "\f073"
+}
+
+.el-icon-delete:before {
+    content: "\f1f8"
+}
+
+.el-icon-document:before {
+    content: "\f016"
+}
+
+.el-icon-edit:before {
+    content: "\f040"
+}
+
+.el-icon-information:before {
+    content: "\f05a"
+}
+
+.el-icon-loading:before {
+    content: "\f1ce"
+}
+
+.el-icon-menu:before {
+    content: "\f0c9"
+}
+
+.el-icon-message:before {
+    content: "\f0e0"
+}
+
+.el-icon-minus:before {
+    content: "\f068"
+}
+
+.el-icon-more:before {
+    content: "\f141"
+}
+
+.el-icon-picture:before {
+    content: "\f03e"
+}
+
+.el-icon-plus:before {
+    content: "\f067"
+}
+
+.el-icon-search:before {
+    content: "\f002"
+}
+
+.el-icon-setting:before {
+    content: "\f013"
+}
+
+.el-icon-share:before {
+    content: "\f1e1"
+}
+
+.el-icon-star-off:before {
+    content: "\f006"
+}
+
+.el-icon-star-on:before {
+    content: "\f005"
+}
+
+.el-icon-time:before {
+    content: "\f017"
+}
+
+.el-icon-warning:before {
+    content: "\f06a"
+}
+
+.el-icon-delete2:before {
+    content: "\f014"
+}
+
+.el-icon-upload2:before {
+    content: "\f093"
+}
+
+.el-icon-view:before {
+    content: "\f00e"
+}
+
+.el-icon-loading {
+    animation: rotating 1s linear infinite
+}
+
+.el-icon--right {
+    margin-left: 5px
+}
+
+.el-icon--left {
+    margin-right: 5px
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotateZ(0)
+    }
+    100% {
+        transform: rotateZ(360deg)
+    }
+}

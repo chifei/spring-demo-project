@@ -1,0 +1,74 @@
+import org.gradle.internal.os.OperatingSystem
+
+def isWindows = OperatingSystem.current().isWindows()
+
+// use gradlew -Penv=${env} to pass
+def environment = hasProperty('env') ? env : null
+
+apply plugin: 'application'
+mainClassName = 'Main'
+
+def yarn(String dir, List<String> params) {
+    def isWindows = org.gradle.internal.os.OperatingSystem.current().isWindows()
+    def command = isWindows ? ['cmd', '/c', 'yarn'] : ['yarn']
+    command.addAll(params)
+    return {
+        workingDir dir
+        commandLine command
+    }
+}
+
+processResources {
+    if (environment != null) {
+        def envProperties = "conf/${environment}/resources"
+        assert project.file(envProperties).exists()
+        from envProperties
+    }
+
+    processResources {
+        doLast {
+            if (project.file('src/main/web/package.json').exists()) {
+                exec yarn("${projectDir}/src/main/web/", ['install'])
+                delete "${projectDir}/src/main/dist/web/"
+                exec yarn("${projectDir}/src/main/web/", ['release'])
+            }
+        }
+    }
+}
+
+distTar {
+    archiveName "${baseName}.${extension}"
+}
+
+distZip {
+    archiveName "${baseName}.${extension}"
+}
+
+startScripts {
+    defaultJvmOpts = ["-Dapp.dir=APP_DIR_VAR"]
+
+    doLast {
+        windowsScript.text = windowsScript.text.replaceFirst('APP_DIR_VAR', '%APP_HOME%')
+        windowsScript.text = windowsScript.text.replaceFirst('CLASSPATH=%APP_HOME%', 'CLASSPATH=%APP_HOME%\\\\lib\\\\*;%APP_HOME%')
+        unixScript.text = unixScript.text.replaceFirst('APP_DIR_VAR', '\\$APP_HOME')
+        unixScript.text = unixScript.text.replaceFirst('CLASSPATH=\\$APP_HOME', 'CLASSPATH=\\$APP_HOME/lib/*:\\$APP_HOME')
+    }
+}
+
+distributions {
+    main {
+        if (environment != null) {
+            def envProperties = "conf/${environment}/resources"
+            assert project.file(envProperties).exists()
+            contents {
+                from("conf/${environment}/web") {
+                    into "web"
+                }
+            }
+        }
+    }
+}
+
+task release {
+    distZip
+}

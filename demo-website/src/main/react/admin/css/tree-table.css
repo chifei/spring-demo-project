@@ -1,0 +1,44 @@
+.el-tree-table .table {
+    width: 100%;
+}
+
+.el-tree-table .key-column {
+    cursor: pointer;
+}
+
+.el-tree-table .depth-0 {
+    margin-left: 0;
+}
+
+.el-tree-table .depth-1 {
+    margin-left: 20px;
+}
+
+.el-tree-table .depth-2 {
+    margin-left: 40px;
+}
+
+.el-tree-table .depth-3 {
+    margin-left: 60px;
+}
+
+.el-tree-table .depth-4 {
+    margin-left: 80px;
+}
+
+.el-tree-table .depth-5 {
+    margin-left: 100px;
+}
+
+.el-tree-table .depth-6 {
+    margin-left: 120px;
+}
+
+.el-tree-table .empty-children {
+    width: 14px;
+    display: inline-block;
+}
+
+.el-tree-table .key-column-name {
+    margin-left: 10px;
+}

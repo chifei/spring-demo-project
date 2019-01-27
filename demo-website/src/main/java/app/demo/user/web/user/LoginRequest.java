@@ -1,0 +1,14 @@
+package app.demo.user.web.user;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
+
+@XmlAccessorType(XmlAccessType.FIELD)
+public class LoginRequest {
+    @XmlElement(name = "username")
+    public String username;
+    @XmlElement(name = "password")
+    public String password;
+}

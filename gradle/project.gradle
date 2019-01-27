@@ -1,0 +1,72 @@
+import java.time.Instant
+
+apply plugin: 'build-dashboard'
+defaultTasks 'clean', 'build'
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+        options.deprecation = true
+        options.compilerArgs += ['-Xlint:all', '-proc:none']
+    }
+
+    buildDir = "${rootDir}/build/${name}"
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    afterEvaluate {
+        tasks.withType(Jar) {
+            manifest {
+                def copy = configurations.runtimeElements.copyRecursive().setTransitive(true)
+                copy.setCanBeResolved(true)
+                def dependencies = copy.resolvedConfiguration.resolvedArtifacts.collect { artifact ->
+                    def dependency = artifact.getModuleVersion().getId();
+                    return dependency.getGroup() + ":" + (dependency.getName().startsWith("jweb-") ? dependency.getName().substring("jweb-".length()) : dependency.getName()) + ":" + dependency
+                            .getVersion()
+                }.join(';');
+
+                attributes 'Implementation-Title': project.name,
+                        'Implementation-Version': project.version,
+                        'Created-By': "jweb.app",
+                        'Built-With': "gradle-${project.gradle.gradleVersion}",
+                        'Build-Time': Instant.now().toString(),
+                        "Dependencies": dependencies
+            }
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+
+allprojects {
+    apply plugin: 'idea'
+    idea.module.inheritOutputDirs = true
+}
+
+apply from: file("${rootDir}/gradle/quality.gradle")
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.sf.proguard:proguard-gradle:5.3.3'
+    }
+}
+
+wrapper {
+    gradleVersion = '5.0'
+}
+

@@ -1,0 +1,101 @@
+.login-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    text-align: center;
+    z-index: 10000;
+}
+
+.login-wrap::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.login-panel {
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.login-panel .el-card {
+    width: 400px;
+    padding: 50px;
+    background: #fff;
+    margin-bottom: 15px;
+    border: 1px solid hsla(0, 0%, 88%, .7);
+    box-shadow: none;
+}
+
+.login-panel .icon-logo {
+    display: block;
+    font-size: 44px;
+    margin-bottom: 60px;
+}
+
+.login-panel input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid #e8e8e8;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #cacaca !important;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #cacaca !important;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #cacaca !important;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #cacaca !important;
+}
+
+.login-panel button {
+    width: 100%;
+    height: 46px;
+    margin-top: 20px;
+}
+
+.login-panel .el-button--primary.is-disabled,
+.login-panel .el-button--primary.is-disabled:focus,
+.login-panel .el-button--primary.is-disabled:hover {
+    background-color: #3498db;
+    border-color: #3498db;
+    opacity: 0.5;
+}
+
+.el-input-group--append .el-input__inner {
+    border-right: 0;
+}
+
+.login-panel .el-input-group__append {
+    padding: 0;
+    overflow: hidden;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+}
+
+.login-panel .el-input__inner:focus + .el-input-group__append,
+.login-panel .el-input__inner:hover + .el-input-group__append {
+    border-color: #3498db;
+}
+
+.el-form-item.is-error .el-input__inner + .el-input-group__append {
+    border-color: #cd0000;
+}
+
+.login-panel .remember-me {
+    text-align: left;
+}

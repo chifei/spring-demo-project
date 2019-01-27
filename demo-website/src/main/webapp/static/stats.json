@@ -1,0 +1,1282 @@
+{
+  "errors": [
+  ],
+  "warnings": [
+    "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/"
+  ],
+  "version": "4.29.0",
+  "hash": "3a6f79fa09752e44a6e1",
+  "time": 1397,
+  "builtAt": 1548128641543,
+  "publicPath": "",
+  "outputPath": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\webapp\\static",
+  "assetsByChunkName": {
+    "login": "login.min.js"
+  },
+  "assets": [
+    {
+      "name": "login.min.js",
+      "size": 16395,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "login"
+      ],
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "login": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "login.min.js"
+      ],
+      "children": {
+      },
+      "childAssets": {
+      }
+    }
+  },
+  "namedChunkGroups": {
+    "login": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "login.min.js"
+      ],
+      "children": {
+      },
+      "childAssets": {
+      }
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "size": 32887,
+      "names": [
+        "login"
+      ],
+      "files": [
+        "login.min.js"
+      ],
+      "hash": "0362211741570dd3848e",
+      "siblings": [
+      ],
+      "parents": [
+      ],
+      "children": [
+      ],
+      "childrenByOrder": {
+      },
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "external \"React\"",
+          "name": "external \"React\"",
+          "index": 1,
+          "index2": 0,
+          "size": 42,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "issuerId": 2,
+          "issuerName": "./admin/login.jsx",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 2,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "module": "./admin/login.jsx",
+              "moduleName": "./admin/login.jsx",
+              "type": "cjs require",
+              "userRequest": "react",
+              "loc": "5:13-29"
+            },
+            {
+              "moduleId": 4,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "module": "./admin/user/user.login.jsx",
+              "moduleName": "./admin/user/user.login.jsx",
+              "type": "cjs require",
+              "userRequest": "react",
+              "loc": "9:13-29"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "parsedSrc": "function(e,n){e.exports=React}"
+        },
+        {
+          "id": 1,
+          "identifier": "external \"ElementUI\"",
+          "name": "external \"ElementUI\"",
+          "index": 3,
+          "index2": 2,
+          "size": 42,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "issuerId": 2,
+          "issuerName": "./admin/login.jsx",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 2,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "module": "./admin/login.jsx",
+              "moduleName": "./admin/login.jsx",
+              "type": "cjs require",
+              "userRequest": "element-react",
+              "loc": "13:20-44"
+            },
+            {
+              "moduleId": 4,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "module": "./admin/user/user.login.jsx",
+              "moduleName": "./admin/user/user.login.jsx",
+              "type": "cjs require",
+              "userRequest": "element-react",
+              "loc": "13:20-44"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "parsedSrc": "function(e,n){e.exports=ElementUI}"
+        },
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx",
+          "index": 0,
+          "index2": 10,
+          "size": 2667,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./admin/login",
+              "loc": "login"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 0,
+          "parsedSrc": "function(e,n,t){\"use strict\";var r=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,\"value\"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),o=l(t(0)),i=l(t(3)),a=(t(1),l(t(4)));function l(e){return e&&e.__esModule?e:{default:e}}window.ElementUI.i18n.use(window.messages);var u=function(e){function n(e){!function(e,n){if(!(e instanceof n))throw new TypeError(\"Cannot call a class as a function\")}(this,n);var t=function(e,n){if(!e)throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");return!n||\"object\"!=typeof n&&\"function\"!=typeof n?e:n}(this,(n.__proto__||Object.getPrototypeOf(n)).call(this,e));return t.state={},t}return function(e,n){if(\"function\"!=typeof n&&null!==n)throw new TypeError(\"Super expression must either be null or a function, not \"+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}(n,o.default.Component),r(n,[{key:\"render\",value:function(){return o.default.createElement(\"div\",null,o.default.createElement(a.default,null))}}]),n}();i.default.render(o.default.createElement(u,null),document.getElementById(\"app\"))}"
+        },
+        {
+          "id": 3,
+          "identifier": "external \"ReactDOM\"",
+          "name": "external \"ReactDOM\"",
+          "index": 2,
+          "index2": 1,
+          "size": 42,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "issuerId": 2,
+          "issuerName": "./admin/login.jsx",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 2,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "module": "./admin/login.jsx",
+              "moduleName": "./admin/login.jsx",
+              "type": "cjs require",
+              "userRequest": "react-dom",
+              "loc": "9:16-36"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "parsedSrc": "function(e,n){e.exports=ReactDOM}"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx",
+          "index": 4,
+          "index2": 9,
+          "size": 8930,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "issuerId": 2,
+          "issuerName": "./admin/login.jsx",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 2,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "module": "./admin/login.jsx",
+              "moduleName": "./admin/login.jsx",
+              "type": "cjs require",
+              "userRequest": "./user/user.login",
+              "loc": "15:12-40"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "parsedSrc": "function(e,n,t){\"use strict\";Object.defineProperty(n,\"__esModule\",{value:!0});var r=function(){function e(e,n){for(var t=0;t<n.length;t++){var r=n[t];r.enumerable=r.enumerable||!1,r.configurable=!0,\"value\"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,t,r){return t&&e(n.prototype,t),r&&e(n,r),n}}(),o=l(t(0)),i=t(1),a=l(t(5));function l(e){return e&&e.__esModule?e:{default:e}}function u(e,n,t){return n in e?Object.defineProperty(e,n,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[n]=t,e}t(6);var s=window.ElementUI.i18n,c=function(e){function n(e){!function(e,n){if(!(e instanceof n))throw new TypeError(\"Cannot call a class as a function\")}(this,n);var t=function(e,n){if(!e)throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\");return!n||\"object\"!=typeof n&&\"function\"!=typeof n?e:n}(this,(n.__proto__||Object.getPrototypeOf(n)).call(this,e));return t.state={login:{username:null,password:null,captchaCode:null,autoLogin:!1},rules:{username:[{required:!0,message:s.t(\"user.usernameRule\"),trigger:\"blur\"}],password:[{required:!0,message:s.t(\"user.passwordRule\"),trigger:\"blur\"}]},captchaCodeURL:\"/captcha.jpg?\"+(new Date).getTime(),valid:!1},t}return function(e,n){if(\"function\"!=typeof n&&null!==n)throw new TypeError(\"Super expression must either be null or a function, not \"+typeof n);e.prototype=Object.create(n&&n.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),n&&(Object.setPrototypeOf?Object.setPrototypeOf(e,n):e.__proto__=n)}(n,o.default.Component),r(n,[{key:\"valid\",value:function(){return this.state.login.username&&this.state.login.password}},{key:\"changeCaptchaCode\",value:function(){this.setState({captchaCodeURL:\"/captcha.jpg?\"+(new Date).getTime()})}},{key:\"onChange\",value:function(e,n){this.setState({login:Object.assign(this.state.login,u({},e,n))})}},{key:\"login\",value:function(){var e=this;return this.loginForm.validate(function(n){n&&fetch(\"/admin/api/user/login\",{method:\"post\",body:JSON.stringify(e.state.login)}).then(function(n){if(e.hasFromURL(n.fromURL))window.location.href=n.fromURL;else{var t=e.state.rules;t.username.push({trigger:\"callback\",validator:function(e,t,r){return r(new Error(n.message))}}),e.setState({rules:t}),e.loginForm.validateField(\"username\",function(){t.username=t.username.filter(function(e){return\"callback\"!==e.trigger}),e.setState({rules:t})})}})}),!1}},{key:\"hasFromURL\",value:function(e){return e&&\"/login\"!==e&&\"/logout\"!==e}},{key:\"cancel\",value:function(){window.console.log(\"cannot cancel\")}},{key:\"handleKeyPress\",value:function(e){\"Enter\"===e.key&&this.login()}},{key:\"render\",value:function(){var e=this;return o.default.createElement(\"div\",{className:\"login-wrap\"},o.default.createElement(\"div\",{className:\"login-panel\"},o.default.createElement(i.Card,{header:s.t(\"user.login\")},o.default.createElement(i.Form,{model:this.state.login,rules:this.state.rules,ref:function(n){e.loginForm=n}},o.default.createElement(i.Form.Item,{prop:\"username\"},o.default.createElement(i.Input,{placeholder:s.t(\"user.username\"),ref:function(n){e.usernameInput=n},value:this.state.login.username,onChange:function(n){return e.onChange(\"username\",n)},onKeyPress:function(n){return e.handleKeyPress(n)}})),o.default.createElement(i.Form.Item,{prop:\"password\"},o.default.createElement(i.Input,{placeholder:s.t(\"user.password\"),value:this.state.login.password,type:\"password\",onChange:function(n){return e.onChange(\"password\",n)},onKeyPress:function(n){return e.handleKeyPress(n)}})),o.default.createElement(i.Button,{disabled:!this.valid(),type:\"primary\",onClick:function(){return e.login()}},s.t(\"user.login\"))))))}}]),n}();n.default=c,c.propTypes={history:a.default.object}}"
+        },
+        {
+          "id": 5,
+          "identifier": "external \"PropTypes\"",
+          "name": "external \"PropTypes\"",
+          "index": 5,
+          "index2": 3,
+          "size": 42,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "issuerId": 4,
+          "issuerName": "./admin/user/user.login.jsx",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            },
+            {
+              "id": 4,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "name": "./admin/user/user.login.jsx"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 4,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "module": "./admin/user/user.login.jsx",
+              "moduleName": "./admin/user/user.login.jsx",
+              "type": "cjs require",
+              "userRequest": "prop-types",
+              "loc": "15:17-38"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2,
+          "parsedSrc": "function(e,n){e.exports=PropTypes}"
+        },
+        {
+          "id": 6,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./admin/user/user.login.css",
+          "index": 6,
+          "index2": 8,
+          "size": 5931,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "issuerId": 4,
+          "issuerName": "./admin/user/user.login.jsx",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            },
+            {
+              "id": 4,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "name": "./admin/user/user.login.jsx"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 4,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "module": "./admin/user/user.login.jsx",
+              "moduleName": "./admin/user/user.login.jsx",
+              "type": "cjs require",
+              "userRequest": "./user.login.css",
+              "loc": "19:0-27"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 2,
+          "parsedSrc": "function(e,n,t){var r=t(7);\"string\"==typeof r&&(r=[[e.i,r,\"\"]]);var o={hmr:!0,transform:void 0,insertInto:void 0};t(9)(r,o);r.locals&&(e.exports=r.locals)}function(e,n,t){(e.exports=t(8)(!0)).push([e.i,'.login-wrap{position:fixed;top:0;left:0;width:100%;height:100%;background:#f0f0f0;text-align:center;z-index:10000}.login-wrap:before{content:\"\";height:100%}.login-panel,.login-wrap:before{display:inline-block;vertical-align:middle}.login-panel{box-sizing:border-box}.login-panel .el-card{width:400px;padding:50px;background:#fff;margin-bottom:15px;border:1px solid hsla(0,0%,88%,.7);box-shadow:none}.login-panel .icon-logo{display:block;font-size:44px;margin-bottom:60px}.login-panel input{width:100%;height:44px;border:1px solid #e8e8e8}::-webkit-input-placeholder{color:#cacaca!important}::-moz-placeholder{color:#cacaca!important}:-ms-input-placeholder{color:#cacaca!important}:-moz-placeholder{color:#cacaca!important}.login-panel button{width:100%;height:46px;margin-top:20px}.login-panel .el-button--primary.is-disabled,.login-panel .el-button--primary.is-disabled:focus,.login-panel .el-button--primary.is-disabled:hover{background-color:#3498db;border-color:#3498db;opacity:.5}.el-input-group--append .el-input__inner{border-right:0}.login-panel .el-input-group__append{padding:0;overflow:hidden;transition:border-color .2s cubic-bezier(.645,.045,.355,1)}.login-panel .el-input__inner:focus+.el-input-group__append,.login-panel .el-input__inner:hover+.el-input-group__append{border-color:#3498db}.el-form-item.is-error .el-input__inner+.el-input-group__append{border-color:#cd0000}.login-panel .remember-me{text-align:left}',\"\",{version:3,sources:[\"D:/Workspace/gitlab.com/spring-demo-project/demo-website/src/main/react/admin/user/user.login.css\"],names:[],mappings:\"AAAA,YACI,eAAgB,AAChB,MAAO,AACP,OAAQ,AACR,WAAY,AACZ,YAAa,AACb,mBAAoB,AACpB,kBAAmB,AACnB,aAAe,CAClB,AAED,mBACI,WAAY,AAEZ,WAAa,CAEhB,AAED,gCALI,qBAAsB,AAEtB,qBAAuB,CAO1B,AAJD,aAGI,qBAAuB,CAC1B,AAED,sBACI,YAAa,AACb,aAAc,AACd,gBAAiB,AACjB,mBAAoB,AACpB,mCAAuC,AACvC,eAAiB,CACpB,AAED,wBACI,cAAe,AACf,eAAgB,AAChB,kBAAoB,CACvB,AAED,mBACI,WAAY,AACZ,YAAa,AACb,wBAA0B,CAC7B,AAED,4BAEI,uBAA0B,CAC7B,AAED,mBAEI,uBAA0B,CAC7B,AAED,uBAEI,uBAA0B,CAC7B,AAED,kBAEI,uBAA0B,CAC7B,AAED,oBACI,WAAY,AACZ,YAAa,AACb,eAAiB,CACpB,AAED,mJAGI,yBAA0B,AAC1B,qBAAsB,AACtB,UAAa,CAChB,AAED,yCACI,cAAgB,CACnB,AAED,qCACI,UAAW,AACX,gBAAiB,AACjB,0DAA+D,CAClE,AAED,wHAEI,oBAAsB,CACzB,AAED,gEACI,oBAAsB,CACzB,AAED,0BACI,eAAiB,CACpB\",file:\"user.login.css\",sourcesContent:['.login-wrap {\\r\\n    position: fixed;\\r\\n    top: 0;\\r\\n    left: 0;\\r\\n    width: 100%;\\r\\n    height: 100%;\\r\\n    background: #f0f0f0;\\r\\n    text-align: center;\\r\\n    z-index: 10000;\\r\\n}\\r\\n\\r\\n.login-wrap::before {\\r\\n    content: \"\";\\r\\n    display: inline-block;\\r\\n    height: 100%;\\r\\n    vertical-align: middle;\\r\\n}\\r\\n\\r\\n.login-panel {\\r\\n    display: inline-block;\\r\\n    vertical-align: middle;\\r\\n    box-sizing: border-box;\\r\\n}\\r\\n\\r\\n.login-panel .el-card {\\r\\n    width: 400px;\\r\\n    padding: 50px;\\r\\n    background: #fff;\\r\\n    margin-bottom: 15px;\\r\\n    border: 1px solid hsla(0, 0%, 88%, .7);\\r\\n    box-shadow: none;\\r\\n}\\r\\n\\r\\n.login-panel .icon-logo {\\r\\n    display: block;\\r\\n    font-size: 44px;\\r\\n    margin-bottom: 60px;\\r\\n}\\r\\n\\r\\n.login-panel input {\\r\\n    width: 100%;\\r\\n    height: 44px;\\r\\n    border: 1px solid #e8e8e8;\\r\\n}\\r\\n\\r\\n::-webkit-input-placeholder {\\r\\n    /* Chrome/Opera/Safari */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n::-moz-placeholder {\\r\\n    /* Firefox 19+ */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n:-ms-input-placeholder {\\r\\n    /* IE 10+ */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n:-moz-placeholder {\\r\\n    /* Firefox 18- */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n.login-panel button {\\r\\n    width: 100%;\\r\\n    height: 46px;\\r\\n    margin-top: 20px;\\r\\n}\\r\\n\\r\\n.login-panel .el-button--primary.is-disabled,\\r\\n.login-panel .el-button--primary.is-disabled:focus,\\r\\n.login-panel .el-button--primary.is-disabled:hover {\\r\\n    background-color: #3498db;\\r\\n    border-color: #3498db;\\r\\n    opacity: 0.5;\\r\\n}\\r\\n\\r\\n.el-input-group--append .el-input__inner {\\r\\n    border-right: 0;\\r\\n}\\r\\n\\r\\n.login-panel .el-input-group__append {\\r\\n    padding: 0;\\r\\n    overflow: hidden;\\r\\n    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);\\r\\n}\\r\\n\\r\\n.login-panel .el-input__inner:focus + .el-input-group__append,\\r\\n.login-panel .el-input__inner:hover + .el-input-group__append {\\r\\n    border-color: #3498db;\\r\\n}\\r\\n\\r\\n.el-form-item.is-error .el-input__inner + .el-input-group__append {\\r\\n    border-color: #cd0000;\\r\\n}\\r\\n\\r\\n.login-panel .remember-me {\\r\\n    text-align: left;\\r\\n}'],sourceRoot:\"\"}])}"
+        },
+        {
+          "id": 7,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+          "index": 7,
+          "index2": 5,
+          "size": 4721,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "issuerId": 6,
+          "issuerName": "./admin/user/user.login.css",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            },
+            {
+              "id": 4,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "name": "./admin/user/user.login.jsx"
+            },
+            {
+              "id": 6,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "name": "./admin/user/user.login.css"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 6,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "module": "./admin/user/user.login.css",
+              "moduleName": "./admin/user/user.login.css",
+              "type": "cjs require",
+              "userRequest": "!!../../node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-1!./user.login.css",
+              "loc": "2:14-112"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 3,
+          "parsedSrc": "function(e,n,t){(e.exports=t(8)(!0)).push([e.i,'.login-wrap{position:fixed;top:0;left:0;width:100%;height:100%;background:#f0f0f0;text-align:center;z-index:10000}.login-wrap:before{content:\"\";height:100%}.login-panel,.login-wrap:before{display:inline-block;vertical-align:middle}.login-panel{box-sizing:border-box}.login-panel .el-card{width:400px;padding:50px;background:#fff;margin-bottom:15px;border:1px solid hsla(0,0%,88%,.7);box-shadow:none}.login-panel .icon-logo{display:block;font-size:44px;margin-bottom:60px}.login-panel input{width:100%;height:44px;border:1px solid #e8e8e8}::-webkit-input-placeholder{color:#cacaca!important}::-moz-placeholder{color:#cacaca!important}:-ms-input-placeholder{color:#cacaca!important}:-moz-placeholder{color:#cacaca!important}.login-panel button{width:100%;height:46px;margin-top:20px}.login-panel .el-button--primary.is-disabled,.login-panel .el-button--primary.is-disabled:focus,.login-panel .el-button--primary.is-disabled:hover{background-color:#3498db;border-color:#3498db;opacity:.5}.el-input-group--append .el-input__inner{border-right:0}.login-panel .el-input-group__append{padding:0;overflow:hidden;transition:border-color .2s cubic-bezier(.645,.045,.355,1)}.login-panel .el-input__inner:focus+.el-input-group__append,.login-panel .el-input__inner:hover+.el-input-group__append{border-color:#3498db}.el-form-item.is-error .el-input__inner+.el-input-group__append{border-color:#cd0000}.login-panel .remember-me{text-align:left}',\"\",{version:3,sources:[\"D:/Workspace/gitlab.com/spring-demo-project/demo-website/src/main/react/admin/user/user.login.css\"],names:[],mappings:\"AAAA,YACI,eAAgB,AAChB,MAAO,AACP,OAAQ,AACR,WAAY,AACZ,YAAa,AACb,mBAAoB,AACpB,kBAAmB,AACnB,aAAe,CAClB,AAED,mBACI,WAAY,AAEZ,WAAa,CAEhB,AAED,gCALI,qBAAsB,AAEtB,qBAAuB,CAO1B,AAJD,aAGI,qBAAuB,CAC1B,AAED,sBACI,YAAa,AACb,aAAc,AACd,gBAAiB,AACjB,mBAAoB,AACpB,mCAAuC,AACvC,eAAiB,CACpB,AAED,wBACI,cAAe,AACf,eAAgB,AAChB,kBAAoB,CACvB,AAED,mBACI,WAAY,AACZ,YAAa,AACb,wBAA0B,CAC7B,AAED,4BAEI,uBAA0B,CAC7B,AAED,mBAEI,uBAA0B,CAC7B,AAED,uBAEI,uBAA0B,CAC7B,AAED,kBAEI,uBAA0B,CAC7B,AAED,oBACI,WAAY,AACZ,YAAa,AACb,eAAiB,CACpB,AAED,mJAGI,yBAA0B,AAC1B,qBAAsB,AACtB,UAAa,CAChB,AAED,yCACI,cAAgB,CACnB,AAED,qCACI,UAAW,AACX,gBAAiB,AACjB,0DAA+D,CAClE,AAED,wHAEI,oBAAsB,CACzB,AAED,gEACI,oBAAsB,CACzB,AAED,0BACI,eAAiB,CACpB\",file:\"user.login.css\",sourcesContent:['.login-wrap {\\r\\n    position: fixed;\\r\\n    top: 0;\\r\\n    left: 0;\\r\\n    width: 100%;\\r\\n    height: 100%;\\r\\n    background: #f0f0f0;\\r\\n    text-align: center;\\r\\n    z-index: 10000;\\r\\n}\\r\\n\\r\\n.login-wrap::before {\\r\\n    content: \"\";\\r\\n    display: inline-block;\\r\\n    height: 100%;\\r\\n    vertical-align: middle;\\r\\n}\\r\\n\\r\\n.login-panel {\\r\\n    display: inline-block;\\r\\n    vertical-align: middle;\\r\\n    box-sizing: border-box;\\r\\n}\\r\\n\\r\\n.login-panel .el-card {\\r\\n    width: 400px;\\r\\n    padding: 50px;\\r\\n    background: #fff;\\r\\n    margin-bottom: 15px;\\r\\n    border: 1px solid hsla(0, 0%, 88%, .7);\\r\\n    box-shadow: none;\\r\\n}\\r\\n\\r\\n.login-panel .icon-logo {\\r\\n    display: block;\\r\\n    font-size: 44px;\\r\\n    margin-bottom: 60px;\\r\\n}\\r\\n\\r\\n.login-panel input {\\r\\n    width: 100%;\\r\\n    height: 44px;\\r\\n    border: 1px solid #e8e8e8;\\r\\n}\\r\\n\\r\\n::-webkit-input-placeholder {\\r\\n    /* Chrome/Opera/Safari */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n::-moz-placeholder {\\r\\n    /* Firefox 19+ */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n:-ms-input-placeholder {\\r\\n    /* IE 10+ */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n:-moz-placeholder {\\r\\n    /* Firefox 18- */\\r\\n    color: #cacaca !important;\\r\\n}\\r\\n\\r\\n.login-panel button {\\r\\n    width: 100%;\\r\\n    height: 46px;\\r\\n    margin-top: 20px;\\r\\n}\\r\\n\\r\\n.login-panel .el-button--primary.is-disabled,\\r\\n.login-panel .el-button--primary.is-disabled:focus,\\r\\n.login-panel .el-button--primary.is-disabled:hover {\\r\\n    background-color: #3498db;\\r\\n    border-color: #3498db;\\r\\n    opacity: 0.5;\\r\\n}\\r\\n\\r\\n.el-input-group--append .el-input__inner {\\r\\n    border-right: 0;\\r\\n}\\r\\n\\r\\n.login-panel .el-input-group__append {\\r\\n    padding: 0;\\r\\n    overflow: hidden;\\r\\n    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);\\r\\n}\\r\\n\\r\\n.login-panel .el-input__inner:focus + .el-input-group__append,\\r\\n.login-panel .el-input__inner:hover + .el-input-group__append {\\r\\n    border-color: #3498db;\\r\\n}\\r\\n\\r\\n.el-form-item.is-error .el-input__inner + .el-input-group__append {\\r\\n    border-color: #cd0000;\\r\\n}\\r\\n\\r\\n.login-panel .remember-me {\\r\\n    text-align: left;\\r\\n}'],sourceRoot:\"\"}])}"
+        },
+        {
+          "id": 8,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\lib\\css-base.js",
+          "name": "./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js",
+          "index": 8,
+          "index2": 4,
+          "size": 2260,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "issuerId": 7,
+          "issuerName": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            },
+            {
+              "id": 4,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "name": "./admin/user/user.login.jsx"
+            },
+            {
+              "id": 6,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "name": "./admin/user/user.login.css"
+            },
+            {
+              "id": 7,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "name": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 7,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "module": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+              "moduleName": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+              "type": "cjs require",
+              "userRequest": "../../node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js",
+              "loc": "1:27-103"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 4,
+          "parsedSrc": "function(e,n){e.exports=function(e){var n=[];return n.toString=function(){return this.map(function(n){var t=function(e,n){var t=e[1]||\"\",r=e[3];if(!r)return t;if(n&&\"function\"==typeof btoa){var o=(a=r,\"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,\"+btoa(unescape(encodeURIComponent(JSON.stringify(a))))+\" */\"),i=r.sources.map(function(e){return\"/*# sourceURL=\"+r.sourceRoot+e+\" */\"});return[t].concat(i).concat([o]).join(\"\\n\")}var a;return[t].join(\"\\n\")}(n,e);return n[2]?\"@media \"+n[2]+\"{\"+t+\"}\":t}).join(\"\")},n.i=function(e,t){\"string\"==typeof e&&(e=[[null,e,\"\"]]);for(var r={},o=0;o<this.length;o++){var i=this[o][0];\"number\"==typeof i&&(r[i]=!0)}for(o=0;o<e.length;o++){var a=e[o];\"number\"==typeof a[0]&&r[a[0]]||(t&&!a[2]?a[2]=t:t&&(a[2]=\"(\"+a[2]+\") and (\"+t+\")\"),n.push(a))}},n}}"
+        },
+        {
+          "id": 9,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+          "name": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+          "index": 9,
+          "index2": 7,
+          "size": 9918,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "issuerId": 6,
+          "issuerName": "./admin/user/user.login.css",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            },
+            {
+              "id": 4,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "name": "./admin/user/user.login.jsx"
+            },
+            {
+              "id": 6,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "name": "./admin/user/user.login.css"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 6,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "module": "./admin/user/user.login.css",
+              "moduleName": "./admin/user/user.login.css",
+              "type": "cjs require",
+              "userRequest": "!../../node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+              "loc": "16:13-94"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 3,
+          "parsedSrc": "function(e,n,t){var r,o,i={},a=(r=function(){return window&&document&&document.all&&!window.atob},function(){return void 0===o&&(o=r.apply(this,arguments)),o}),l=function(e){var n={};return function(e){if(\"function\"==typeof e)return e();if(void 0===n[e]){var t=function(e){return document.querySelector(e)}.call(this,e);if(window.HTMLIFrameElement&&t instanceof window.HTMLIFrameElement)try{t=t.contentDocument.head}catch(e){t=null}n[e]=t}return n[e]}}(),u=null,s=0,c=[],p=t(10);function f(e,n){for(var t=0;t<e.length;t++){var r=e[t],o=i[r.id];if(o){o.refs++;for(var a=0;a<o.parts.length;a++)o.parts[a](r.parts[a]);for(;a<r.parts.length;a++)o.parts.push(m(r.parts[a],n))}else{var l=[];for(a=0;a<r.parts.length;a++)l.push(m(r.parts[a],n));i[r.id]={id:r.id,refs:1,parts:l}}}}function d(e,n){for(var t=[],r={},o=0;o<e.length;o++){var i=e[o],a=n.base?i[0]+n.base:i[0],l={css:i[1],media:i[2],sourceMap:i[3]};r[a]?r[a].parts.push(l):t.push(r[a]={id:a,parts:[l]})}return t}function A(e,n){var t=l(e.insertInto);if(!t)throw new Error(\"Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.\");var r=c[c.length-1];if(\"top\"===e.insertAt)r?r.nextSibling?t.insertBefore(n,r.nextSibling):t.appendChild(n):t.insertBefore(n,t.firstChild),c.push(n);else if(\"bottom\"===e.insertAt)t.appendChild(n);else{if(\"object\"!=typeof e.insertAt||!e.insertAt.before)throw new Error(\"[Style Loader]\\n\\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\\n Must be 'top', 'bottom', or Object.\\n (https://github.com/webpack-contrib/style-loader#insertat)\\n\");var o=l(e.insertInto+\" \"+e.insertAt.before);t.insertBefore(n,o)}}function g(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e);var n=c.indexOf(e);n>=0&&c.splice(n,1)}function b(e){var n=document.createElement(\"style\");return e.attrs.type=\"text/css\",h(n,e.attrs),A(e,n),n}function h(e,n){Object.keys(n).forEach(function(t){e.setAttribute(t,n[t])})}function m(e,n){var t,r,o,i;if(n.transform&&e.css){if(!(i=n.transform(e.css)))return function(){};e.css=i}if(n.singleton){var a=s++;t=u||(u=b(n)),r=C.bind(null,t,a,!1),o=C.bind(null,t,a,!0)}else e.sourceMap&&\"function\"==typeof URL&&\"function\"==typeof URL.createObjectURL&&\"function\"==typeof URL.revokeObjectURL&&\"function\"==typeof Blob&&\"function\"==typeof btoa?(t=function(e){var n=document.createElement(\"link\");return e.attrs.type=\"text/css\",e.attrs.rel=\"stylesheet\",h(n,e.attrs),A(e,n),n}(n),r=function(e,n,t){var r=t.css,o=t.sourceMap,i=void 0===n.convertToAbsoluteUrls&&o;(n.convertToAbsoluteUrls||i)&&(r=p(r));o&&(r+=\"\\n/*# sourceMappingURL=data:application/json;base64,\"+btoa(unescape(encodeURIComponent(JSON.stringify(o))))+\" */\");var a=new Blob([r],{type:\"text/css\"}),l=e.href;e.href=URL.createObjectURL(a),l&&URL.revokeObjectURL(l)}.bind(null,t,n),o=function(){g(t),t.href&&URL.revokeObjectURL(t.href)}):(t=b(n),r=function(e,n){var t=n.css,r=n.media;r&&e.setAttribute(\"media\",r);if(e.styleSheet)e.styleSheet.cssText=t;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(t))}}.bind(null,t),o=function(){g(t)});return r(e),function(n){if(n){if(n.css===e.css&&n.media===e.media&&n.sourceMap===e.sourceMap)return;r(e=n)}else o()}}e.exports=function(e,n){if(\"undefined\"!=typeof DEBUG&&DEBUG&&\"object\"!=typeof document)throw new Error(\"The style-loader cannot be used in a non-browser environment\");(n=n||{}).attrs=\"object\"==typeof n.attrs?n.attrs:{},n.singleton||\"boolean\"==typeof n.singleton||(n.singleton=a()),n.insertInto||(n.insertInto=\"head\"),n.insertAt||(n.insertAt=\"bottom\");var t=d(e,n);return f(t,n),function(e){for(var r=[],o=0;o<t.length;o++){var a=t[o];(l=i[a.id]).refs--,r.push(l)}e&&f(d(e,n),n);for(o=0;o<r.length;o++){var l;if(0===(l=r[o]).refs){for(var u=0;u<l.parts.length;u++)l.parts[u]();delete i[l.id]}}}};var y,v=(y=[],function(e,n){return y[e]=n,y.filter(Boolean).join(\"\\n\")});function C(e,n,t,r){var o=t?\"\":r.css;if(e.styleSheet)e.styleSheet.cssText=v(n,o);else{var i=document.createTextNode(o),a=e.childNodes;a[n]&&e.removeChild(a[n]),a.length?e.insertBefore(i,a[n]):e.appendChild(i)}}}"
+        },
+        {
+          "id": 10,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\urls.js",
+          "name": "./node_modules/_style-loader@0.20.3@style-loader/lib/urls.js",
+          "index": 10,
+          "index2": 6,
+          "size": 3013,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+          "issuerId": 9,
+          "issuerName": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+          "issuerPath": [
+            {
+              "id": 2,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+              "name": "./admin/login.jsx"
+            },
+            {
+              "id": 4,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+              "name": "./admin/user/user.login.jsx"
+            },
+            {
+              "id": 6,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+              "name": "./admin/user/user.login.css"
+            },
+            {
+              "id": 9,
+              "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+              "name": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js"
+            }
+          ],
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [
+          ],
+          "reasons": [
+            {
+              "moduleId": 9,
+              "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+              "module": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+              "moduleName": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+              "type": "cjs require",
+              "userRequest": "./urls",
+              "loc": "64:14-31"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 4,
+          "parsedSrc": "function(e,n){e.exports=function(e){var n=\"undefined\"!=typeof window&&window.location;if(!n)throw new Error(\"fixUrls requires window.location\");if(!e||\"string\"!=typeof e)return e;var t=n.protocol+\"//\"+n.host,r=t+n.pathname.replace(/\\/[^\\/]*$/,\"/\");return e.replace(/url\\s*\\(((?:[^)(]|\\((?:[^)(]+|\\([^)(]*\\))*\\))*)\\)/gi,function(e,n){var o,i=n.trim().replace(/^\"(.*)\"$/,function(e,n){return n}).replace(/^'(.*)'$/,function(e,n){return n});return/^(#|data:|http:\\/\\/|https:\\/\\/|file:\\/\\/\\/|\\s*$)/i.test(i)?e:(o=0===i.indexOf(\"//\")?i:0===i.indexOf(\"/\")?t+i:r+i.replace(/^\\.\\//,\"\"),\"url(\"+JSON.stringify(o)+\")\")})}}"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "login",
+          "request": "./admin/login",
+          "reasons": [
+          ]
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "external \"React\"",
+      "name": "external \"React\"",
+      "index": 1,
+      "index2": 0,
+      "size": 42,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+      "issuerId": 2,
+      "issuerName": "./admin/login.jsx",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 2,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "module": "./admin/login.jsx",
+          "moduleName": "./admin/login.jsx",
+          "type": "cjs require",
+          "userRequest": "react",
+          "loc": "5:13-29"
+        },
+        {
+          "moduleId": 4,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "module": "./admin/user/user.login.jsx",
+          "moduleName": "./admin/user/user.login.jsx",
+          "type": "cjs require",
+          "userRequest": "react",
+          "loc": "9:13-29"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "id": 1,
+      "identifier": "external \"ElementUI\"",
+      "name": "external \"ElementUI\"",
+      "index": 3,
+      "index2": 2,
+      "size": 42,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+      "issuerId": 2,
+      "issuerName": "./admin/login.jsx",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 2,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "module": "./admin/login.jsx",
+          "moduleName": "./admin/login.jsx",
+          "type": "cjs require",
+          "userRequest": "element-react",
+          "loc": "13:20-44"
+        },
+        {
+          "moduleId": 4,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "module": "./admin/user/user.login.jsx",
+          "moduleName": "./admin/user/user.login.jsx",
+          "type": "cjs require",
+          "userRequest": "element-react",
+          "loc": "13:20-44"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "id": 2,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+      "name": "./admin/login.jsx",
+      "index": 0,
+      "index2": 10,
+      "size": 2667,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": null,
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "type": "single entry",
+          "userRequest": "./admin/login",
+          "loc": "login"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 0
+    },
+    {
+      "id": 3,
+      "identifier": "external \"ReactDOM\"",
+      "name": "external \"ReactDOM\"",
+      "index": 2,
+      "index2": 1,
+      "size": 42,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+      "issuerId": 2,
+      "issuerName": "./admin/login.jsx",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 2,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "module": "./admin/login.jsx",
+          "moduleName": "./admin/login.jsx",
+          "type": "cjs require",
+          "userRequest": "react-dom",
+          "loc": "9:16-36"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "id": 4,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+      "name": "./admin/user/user.login.jsx",
+      "index": 4,
+      "index2": 9,
+      "size": 8930,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+      "issuerId": 2,
+      "issuerName": "./admin/login.jsx",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 2,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "module": "./admin/login.jsx",
+          "moduleName": "./admin/login.jsx",
+          "type": "cjs require",
+          "userRequest": "./user/user.login",
+          "loc": "15:12-40"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1
+    },
+    {
+      "id": 5,
+      "identifier": "external \"PropTypes\"",
+      "name": "external \"PropTypes\"",
+      "index": 5,
+      "index2": 3,
+      "size": 42,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+      "issuerId": 4,
+      "issuerName": "./admin/user/user.login.jsx",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 4,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "module": "./admin/user/user.login.jsx",
+          "moduleName": "./admin/user/user.login.jsx",
+          "type": "cjs require",
+          "userRequest": "prop-types",
+          "loc": "15:17-38"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2
+    },
+    {
+      "id": 6,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+      "name": "./admin/user/user.login.css",
+      "index": 6,
+      "index2": 8,
+      "size": 1210,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+      "issuerId": 4,
+      "issuerName": "./admin/user/user.login.jsx",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 4,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "module": "./admin/user/user.login.jsx",
+          "moduleName": "./admin/user/user.login.jsx",
+          "type": "cjs require",
+          "userRequest": "./user.login.css",
+          "loc": "19:0-27"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 2
+    },
+    {
+      "id": 7,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+      "name": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+      "index": 7,
+      "index2": 5,
+      "size": 4721,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+      "issuerId": 6,
+      "issuerName": "./admin/user/user.login.css",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx"
+        },
+        {
+          "id": 6,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./admin/user/user.login.css"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 6,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "module": "./admin/user/user.login.css",
+          "moduleName": "./admin/user/user.login.css",
+          "type": "cjs require",
+          "userRequest": "!!../../node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-1!./user.login.css",
+          "loc": "2:14-112"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 3
+    },
+    {
+      "id": 8,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\lib\\css-base.js",
+      "name": "./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js",
+      "index": 8,
+      "index2": 4,
+      "size": 2260,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+      "issuerId": 7,
+      "issuerName": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx"
+        },
+        {
+          "id": 6,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./admin/user/user.login.css"
+        },
+        {
+          "id": 7,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 7,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "module": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+          "moduleName": "./node_modules/_css-loader@0.28.11@css-loader??ref--5-1!./admin/user/user.login.css",
+          "type": "cjs require",
+          "userRequest": "../../node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js",
+          "loc": "1:27-103"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 4
+    },
+    {
+      "id": 9,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+      "name": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+      "index": 9,
+      "index2": 7,
+      "size": 9918,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+      "issuerId": 6,
+      "issuerName": "./admin/user/user.login.css",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx"
+        },
+        {
+          "id": 6,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./admin/user/user.login.css"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 6,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "module": "./admin/user/user.login.css",
+          "moduleName": "./admin/user/user.login.css",
+          "type": "cjs require",
+          "userRequest": "!../../node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+          "loc": "16:13-94"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 3
+    },
+    {
+      "id": 10,
+      "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\urls.js",
+      "name": "./node_modules/_style-loader@0.20.3@style-loader/lib/urls.js",
+      "index": 10,
+      "index2": 6,
+      "size": 3013,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+      "issuerId": 9,
+      "issuerName": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+      "issuerPath": [
+        {
+          "id": 2,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\login.jsx",
+          "name": "./admin/login.jsx"
+        },
+        {
+          "id": 4,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js??ref--4!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.jsx",
+          "name": "./admin/user/user.login.jsx"
+        },
+        {
+          "id": 6,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\index.js!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_css-loader@0.28.11@css-loader\\index.js??ref--5-1!D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\admin\\user\\user.login.css",
+          "name": "./admin/user/user.login.css"
+        },
+        {
+          "id": 9,
+          "identifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+          "name": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js"
+        }
+      ],
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [
+      ],
+      "reasons": [
+        {
+          "moduleId": 9,
+          "moduleIdentifier": "D:\\Workspace\\gitlab.com\\spring-demo-project\\demo-website\\src\\main\\react\\node_modules\\_style-loader@0.20.3@style-loader\\lib\\addStyles.js",
+          "module": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+          "moduleName": "./node_modules/_style-loader@0.20.3@style-loader/lib/addStyles.js",
+          "type": "cjs require",
+          "userRequest": "./urls",
+          "loc": "64:14-31"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 4
+    }
+  ],
+  "filteredModules": 0,
+  "children": [
+  ]
+}
