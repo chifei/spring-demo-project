@@ -2,7 +2,7 @@
 
 The demo project is showcase of Spring + React integration with basic CRUD with ACL support. 
  
-[![Build Status](https://travis-ci.com/chifei/spring-demo-project.svg?branch=master)](https://travis-ci.com/chifei/spring-demo-project)
+[![Build Status](https://travis-ci.org/chifei/spring-demo-project.svg?branch=master)](https://travis-ci.com/chifei/spring-demo-project)
 [![Code Coverage](https://codecov.io/gh/chifei/spring-demo-project/branch/master/graph/badge.svg)](https://codecov.io/gh/chifei/spring-demo-project)
 [![Code Quality: Java](https://img.shields.io/lgtm/grade/java/g/chifei/spring-demo-project.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/chifei/spring-demo-project/context:java)
 [![Total Alerts](https://img.shields.io/lgtm/alerts/g/chifei/spring-demo-project.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/chifei/spring-demo-project/alerts)
