@@ -57,11 +57,15 @@ public class UserInfoCacheService {
 
     public void evict(String id) {
         Cache cache = cacheManager.getCache(Caches.CACHE_USER_INFO);
-        cache.evict(id);
+        if (cache != null) {
+            cache.evict(id);
+        }
     }
 
     public void evictAll() {
         Cache cache = cacheManager.getCache(Caches.CACHE_USER_INFO);
-        cache.clear();
+        if (cache != null) {
+            cache.clear();
+        }
     }
 }

@@ -28,7 +28,7 @@ public class JSONBinderThreadSafeTest {
         calendar.set(2012, Calendar.APRIL, 18, 11, 30, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         date = calendar.getTime();
-        bean.setDate(date);
+        bean.date = date;
     }
 
     @Test
@@ -58,7 +58,7 @@ public class JSONBinderThreadSafeTest {
             assertThat(json, containsString("\"date\""));
 
             JSONTestBean result = JSONBinder.fromJSON(JSONTestBean.class, json);
-            assertEquals(date, result.getDate());
+            assertEquals(date, result.date);
 
             latch.countDown();
         } catch (Throwable throwable) {

@@ -36,7 +36,7 @@ public class UserInfo {
         request.getSession(true).setAttribute(SESSION_USER_ID, userId);
     }
 
-    public boolean hasPermission(String[] permissions) {
+    public boolean hasPermission(String... permissions) {
         for (String permission : permissions) {
             String userId = userId();
             CachedUserInfo user = userInfoCacheService.load(userId);

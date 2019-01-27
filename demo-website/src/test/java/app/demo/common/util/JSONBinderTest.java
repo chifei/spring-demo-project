@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.Calendar;
-import java.util.Date;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,7 +17,7 @@ public class JSONBinderTest {
     @Test
     public void supportJAXBAnnotations() {
         JSONTestBean bean = new JSONTestBean();
-        bean.setField("value");
+        bean.field = "value";
 
         String json = JSONBinder.toJSON(bean);
 
@@ -29,14 +28,14 @@ public class JSONBinderTest {
     public void fromJSON() {
         JSONTestBean bean = JSONBinder.fromJSON(JSONTestBean.class, "{\"different-field\":\"value\"}");
 
-        assertEquals("value", bean.getField());
+        assertEquals("value", bean.field);
     }
 
     @Test
     public void fromJSONWithUnknownFields() {
         JSONTestBean bean = JSONBinder.fromJSON(JSONTestBean.class, "{\"different-field\":\"value\", \"non-existed-field\":\"someValue\"}");
 
-        assertEquals("value", bean.getField());
+        assertEquals("value", bean.field);
     }
 
     @Test
@@ -46,21 +45,20 @@ public class JSONBinderTest {
         calendar.setLenient(false);
         calendar.set(2012, Calendar.APRIL, 18, 11, 30, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        Date date = calendar.getTime();
-        bean.setDate(date);
+        bean.date = calendar.getTime();
 
         String json = JSONBinder.toJSON(bean);
 
         JSONTestBean result = JSONBinder.fromJSON(JSONTestBean.class, json);
-        assertEquals(date, result.getDate());
+        assertEquals(calendar.getTime(), result.date);
     }
 
     @Test
     public void serializeListWithWrapper() {
         JSONTestBean bean = new JSONTestBean();
         JSONTestBeanItem item = new JSONTestBeanItem();
-        item.setField("value");
-        bean.getItems().add(item);
+        item.field = "value";
+        bean.items.add(item);
 
         String json = JSONBinder.toJSON(bean);
         assertThat(json, containsString("\"items\":[{\"field\":\"value\"}]"));
@@ -69,8 +67,8 @@ public class JSONBinderTest {
     @Test
     public void serializeStringListWithWrapper() {
         JSONTestBean bean = new JSONTestBean();
-        bean.getStringItems().add("value1");
-        bean.getStringItems().add("value2");
+        bean.stringItems.add("value1");
+        bean.stringItems.add("value2");
 
         String json = JSONBinder.toJSON(bean);
         assertThat(json, containsString("\"string-items\":[\"value1\",\"value2\"]"));
@@ -104,13 +102,9 @@ public class JSONBinderTest {
     @Test
     public void serializeOffsetDateTime() {
         JSONTestBean bean = new JSONTestBean();
-        bean.setOffsetDateTime(OffsetDateTime.of(2012, Calendar.APRIL, 18, 11, 30, 0, 0, ZoneOffset.UTC));
+        bean.offsetDateTime = OffsetDateTime.of(2012, Calendar.APRIL, 18, 11, 30, 0, 0, ZoneOffset.UTC);
         String json = JSONBinder.toJSON(bean);
         assertThat(json, containsString("\"offsetDateTime\":\"2012-03-18T11:30:00Z\""));
-    }
-
-    static enum TestEnum {
-        A, B
     }
 
     @Test
@@ -119,5 +113,9 @@ public class JSONBinderTest {
         assertEquals("\"A\"", value);
 
         assertEquals(TestEnum.A, JSONBinder.fromJSON(TestEnum.class, value));
+    }
+
+    enum TestEnum {
+        A, B
     }
 }

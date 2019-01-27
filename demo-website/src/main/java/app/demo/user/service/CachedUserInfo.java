@@ -1,5 +1,7 @@
 package app.demo.user.service;
 
+import com.google.common.collect.Lists;
+
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
@@ -16,5 +18,5 @@ public class CachedUserInfo {
     @XmlElement(name = "roleIds")
     public List<String> roleIds;
     @XmlElement(name = "permissionNames")
-    public List<String> permissions;
+    public List<String> permissions = Lists.newArrayList();
 }

@@ -19,9 +19,11 @@ public class Messages extends ReloadableResourceBundleMessageSource {
     public Map<String, String> getMessages(Locale locale) {
         Map<String, String> messages = new HashMap<>();
         Properties properties = getMergedProperties(locale).getProperties();
-        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
-            if (entry.getKey() != null && entry.getValue() != null) {
-                messages.put(entry.getKey().toString(), entry.getValue().toString());
+        if (properties != null) {
+            for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+                if (entry.getKey() != null && entry.getValue() != null) {
+                    messages.put(entry.getKey().toString(), entry.getValue().toString());
+                }
             }
         }
         return messages;

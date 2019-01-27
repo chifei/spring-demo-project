@@ -6,6 +6,7 @@ import app.demo.common.util.Messages;
 import app.demo.common.web.interceptor.ExceptionInterceptor;
 import app.demo.common.web.interceptor.LoginRequiredInterceptor;
 import app.demo.common.web.interceptor.PermissionRequiredInterceptor;
+import com.google.common.base.Strings;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +55,9 @@ public class WebConfig extends WebMvcConfigurationSupport {
             for (int i = 0; i < messageResources.length; i++) {
                 Resource messageResource = messageResources[i];
                 String filename = messageResource.getFilename();
-                baseNames[i] = "messages/" + filename.substring(0, filename.indexOf('_'));
+                if (!Strings.isNullOrEmpty(filename)) {
+                    baseNames[i] = "messages/" + filename.substring(0, filename.indexOf('_'));
+                }
             }
             messages.setBasenames(baseNames);
             return messages;

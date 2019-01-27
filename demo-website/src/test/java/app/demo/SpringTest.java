@@ -1,12 +1,13 @@
 package app.demo;
 
-import com.google.common.collect.Lists;
+import app.demo.common.exception.ApplicationException;
 import app.demo.user.domain.Role;
 import app.demo.user.domain.RoleStatus;
 import app.demo.user.service.RoleService;
 import app.demo.user.service.UserService;
 import app.demo.user.web.role.CreateRoleRequest;
 import app.demo.user.web.user.CreateUserRequest;
+import com.google.common.collect.Lists;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -39,10 +41,10 @@ public class SpringTest {
 
     private void resetDatabase() {
         DataSource dataSource = applicationContext.getBean(DataSource.class);
-        try (Connection connection = dataSource.getConnection()) {
-            connection.prepareStatement("TRUNCATE SCHEMA public AND COMMIT").executeUpdate();
+        try (Connection connection = dataSource.getConnection(); PreparedStatement statement = connection.prepareStatement("TRUNCATE SCHEMA public AND COMMIT")) {
+            statement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new ApplicationException(e);
         }
 
         RoleService roleService = applicationContext.getBean(RoleService.class);

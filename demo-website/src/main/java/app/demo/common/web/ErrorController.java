@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ErrorController implements org.springframework.boot.web.servlet.error.ErrorController {
     private static final String PATH = "/error";
 
-    @RequestMapping(value = PATH)
+    @RequestMapping(PATH)
     public String error() {
         return "/500.html";
     }

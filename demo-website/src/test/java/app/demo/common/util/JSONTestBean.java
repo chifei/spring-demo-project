@@ -16,47 +16,14 @@ import java.util.List;
 public class JSONTestBean {
     @XmlElementWrapper(name = "items")
     @XmlElement(name = "item")
-    private final List<JSONTestBeanItem> items = new ArrayList<>();
+    public List<JSONTestBeanItem> items = new ArrayList<>();
     @XmlElementWrapper(name = "string-items")
     @XmlElement(name = "string-item")
-    private final List<String> stringItems = new ArrayList<>();
+    public List<String> stringItems = new ArrayList<>();
     @XmlElement(name = "different-field")
-    private String field;
+    public String field;
     @XmlElement(name = "date")
-    private Date date;
+    public Date date;
     @XmlElement(name = "offsetDateTime")
-    private OffsetDateTime offsetDateTime;
-
-
-    public String getField() {
-        return field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public List<JSONTestBeanItem> getItems() {
-        return items;
-    }
-
-    public List<String> getStringItems() {
-        return stringItems;
-    }
-
-    public OffsetDateTime getOffsetDateTime() {
-        return offsetDateTime;
-    }
-
-    public void setOffsetDateTime(OffsetDateTime offsetDateTime) {
-        this.offsetDateTime = offsetDateTime;
-    }
+    public OffsetDateTime offsetDateTime;
 }
