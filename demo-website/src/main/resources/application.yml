@@ -1,3 +1,6 @@
+server:
+  port: 8090
+
 spring:
   servlet:
     multipart:
@@ -13,7 +16,6 @@ spring:
   datasource:
     jdbcUrl: jdbc:hsqldb:mem:db;sql.syntax_mys=true
 
-  # Embedded ActiveMQ Configuration Example
   activemq:
     broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
     in-memory: true
@@ -50,7 +52,6 @@ spring:
       receive-timeout: 1000
       time-to-live: 36000
 
-# Logging configuration print only messages for tutorial purposes
 logging:
   pattern:
     console: "%d [%thread] %-5level %logger{36} - %message%n"

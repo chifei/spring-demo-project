@@ -1,6 +1,7 @@
 # Spring Demo Project
 
-The demo project is showcase of Spring + React integration with basic CRUD with ACL support. 
+This demo uses Java 8, Gradle 5, and the latest stable release of Spring Boot, Spring MVC, Spring Cache, Spring Messaging and Spring data. It also uses the lastest React.js coded in ES6 with webpack. 
+
  
 [![Build Status](https://travis-ci.org/chifei/spring-demo-project.svg?branch=master)](https://travis-ci.com/chifei/spring-demo-project)
 [![Code Coverage](https://codecov.io/gh/chifei/spring-demo-project/branch/master/graph/badge.svg)](https://codecov.io/gh/chifei/spring-demo-project)
@@ -8,18 +9,13 @@ The demo project is showcase of Spring + React integration with basic CRUD with 
 [![Total Alerts](https://img.shields.io/lgtm/alerts/g/chifei/spring-demo-project.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/chifei/spring-demo-project/alerts)
 
 
-## Frameworks
+## Try the demo
 
-- Spring boot
-- Spring MVC
-- Spring messaging
-- Spring caching
-- Spring data
-- JPA with hibernate
-- React
-- Element UI 
-- Junit 5
-- Gradle 5
+[https://demo2.jweb.app/](https://demo2.jweb.app/)<br>
+admin/admin
+
+> Database will be reset every 10 minutes.
+
 
 ## Features
 
@@ -32,36 +28,12 @@ The demo project is showcase of Spring + React integration with basic CRUD with 
 - User create or update another role, assign permissions.
 - User delete another role with batch delete support.
 - User can only see buttons/menus with permission granted.
+- Upload products with CSV files.
+- Export products to CSV files.
 
 <img src="doc/login.png"/>
 <img src="doc/list.png"/>
 
-## How to test it
-
-- Download standalone jar file [demo-website-2.1.0.jar](https://github.com/chifei/spring-demo-project/releases/download/2.1.0/demo-website-2.1.0.jar)
-- Run```java -jar demo-website-2.1.0.jar```
-
-The standalone jar is packaged with HSQL embedded.
-
-## Dependencies
-```
- compile 'javax.inject:javax.inject:1'
-compile 'com.google.guava:guava:27.0.1-jre'
-compile "org.springframework:spring-context:${springVersion}"
-compile "org.springframework:spring-webmvc:${springVersion}"
-compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
-compile "org.springframework.boot:spring-boot-starter-activemq:${springBootVersion}"
-compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
-compile 'org.springframework.data:spring-data-jpa:2.1.4.RELEASE'
-compile 'org.hibernate:hibernate-core:5.4.1.Final'
-compile 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.9.8'
-compile 'org.hsqldb:hsqldb:2.3.2'
-compile 'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE'
-compile 'org.apache.activemq:activemq-broker:5.15.8'
-compile 'com.opencsv:opencsv:4.4'
-compile 'org.apache.logging.log4j:log4j-to-slf4j:2.11.1'
-compile 'org.slf4j:jul-to-slf4j:1.7.25'
-```
 
 ## ACL implementation
 
@@ -99,7 +71,3 @@ compile 'org.slf4j:jul-to-slf4j:1.7.25'
     <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
 </PermissionRequired>
 ```
-
-
-
-

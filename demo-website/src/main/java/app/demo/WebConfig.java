@@ -23,7 +23,9 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
@@ -88,6 +90,11 @@ public class WebConfig extends WebMvcConfigurationSupport {
     }
 
     @Bean
+    public InternalResourceViewResolver internalResourceViewResolver() {
+        return new InternalResourceViewResolver();
+    }
+
+    @Bean
     public LoginRequiredInterceptor loginRequiredInterceptor() {
         return new LoginRequiredInterceptor();
     }
@@ -132,5 +139,10 @@ public class WebConfig extends WebMvcConfigurationSupport {
         registry.addInterceptor(exceptionInterceptor());
         registry.addInterceptor(loginRequiredInterceptor());
         registry.addInterceptor(permissionRequiredInterceptor());
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("redirect:/admin/");
     }
 }

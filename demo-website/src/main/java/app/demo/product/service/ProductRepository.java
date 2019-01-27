@@ -13,7 +13,7 @@ import java.util.List;
  * @author chi
  */
 public interface ProductRepository extends PagingAndSortingRepository<Product, String> {
-    @Query("SELECT t FROM Product t where t.name = ?1")
+    @Query("SELECT t FROM Product t where t.name LIKE ?1")
     Page<Product> findByName(String name, Pageable page);
 
     @Modifying

@@ -1,11 +1,11 @@
 package app.demo.product.service;
 
-import com.google.common.base.Strings;
 import app.demo.common.exception.ResourceNotFoundException;
 import app.demo.product.domain.Product;
 import app.demo.product.web.product.CreateProductRequest;
 import app.demo.product.web.product.ProductQuery;
 import app.demo.product.web.product.UpdateProductRequest;
+import com.google.common.base.Strings;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -30,10 +30,10 @@ public class ProductService {
     public Page<Product> find(ProductQuery productQuery) {
         if (Strings.isNullOrEmpty(productQuery.name)) {
             return repository.findAll(PageRequest.of(productQuery.page - 1, productQuery.limit,
-                    new Sort(productQuery.desc ? Sort.Direction.DESC : Sort.Direction.ASC, productQuery.sortingField)));
+                new Sort(productQuery.desc ? Sort.Direction.DESC : Sort.Direction.ASC, productQuery.sortingField)));
         } else {
-            return repository.findByName(productQuery.name, PageRequest.of(productQuery.page - 1, productQuery.limit,
-                    new Sort(productQuery.desc ? Sort.Direction.DESC : Sort.Direction.ASC, productQuery.sortingField)));
+            return repository.findByName('%' + productQuery.name + '%', PageRequest.of(productQuery.page - 1, productQuery.limit,
+                new Sort(productQuery.desc ? Sort.Direction.DESC : Sort.Direction.ASC, productQuery.sortingField)));
         }
     }
 
