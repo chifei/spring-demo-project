@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Breadcrumb, Button, Card, Form} from "element-react";
+import {Breadcrumb, Card, Form} from "element-react";
 import PropTypes from "prop-types";
 
 const i18n = window.i18n;
@@ -43,7 +43,7 @@ export default class ProductView extends React.Component {
                         </Breadcrumb>
                     </div>
                     <div className="toolbar-buttons">
-                        <Button type="button"><Link to="/admin/product/list">{i18n.t("product.cancel")}</Link></Button>
+                        <Link to="/admin/product/list">{i18n.t("product.cancel")}</Link>
                     </div>
                 </div>
                 <div className="body">

@@ -7,12 +7,6 @@ spring:
       max-file-size: 20MB
       max-request-size: 20MB
 
-  jpa:
-    show-sql: true
-    open-in-view: true
-    hibernate:
-      ddl-auto: create-drop
-
   datasource:
     jdbcUrl: jdbc:hsqldb:mem:db;sql.syntax_mys=true
 

@@ -63,9 +63,9 @@ export default class UserGroupList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/view"}}> {i18n.t("user.view")} </Link></Button>
+                                <Link to={{pathname: "/admin/user/role/" + data.id + "/view"}}> {i18n.t("user.view")} </Link>
                                 <ElementUI.PermissionRequired permissions={["user.write"]}>
-                                    <Button type="text"> <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link> </Button>
+                                    <Link to={{pathname: "/admin/user/role/" + data.id + "/update"}}>{i18n.t("user.update")}</Link>
                                 </ElementUI.PermissionRequired>
                                 <ElementUI.PermissionRequired permissions={["user.write"]}>
                                     <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>
@@ -159,7 +159,7 @@ export default class UserGroupList extends React.Component {
                     <div className="toolbar-buttons">
                         <ElementUI.PermissionRequired permissions={["user.write"]}>
                             <Button type="danger" style={this.state.selected.length > 0 ? {} : {"display": "none"}} onClick={() => this.batchDelete()}>{i18n.t("user.delete")}</Button>
-                            <Button type="primary"><Link to={{pathname: "/admin/user/role/create"}}>{i18n.t("user.create")}</Link></Button>
+                            <Link to={{pathname: "/admin/user/role/create"}}>{i18n.t("user.create")}</Link>
                         </ElementUI.PermissionRequired>
                     </div>
                 </div>

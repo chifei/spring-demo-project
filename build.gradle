@@ -25,6 +25,7 @@ project(':demo-website') {
         compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
         compile 'org.springframework.data:spring-data-jpa:2.1.4.RELEASE'
         compile 'org.hibernate:hibernate-core:5.4.1.Final'
+        compile 'org.hibernate:hibernate-ehcache:5.4.1.Final'
         compile 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.9.8'
         compile 'org.hsqldb:hsqldb:2.3.2'
         compile 'org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE'

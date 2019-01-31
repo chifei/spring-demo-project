@@ -58,9 +58,9 @@ export default class UserList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/view"}}> {i18n.t("user.view")} </Link></Button>
+                                <Link to={{pathname: "/admin/user/" + data.id + "/view"}}> {i18n.t("user.view")} </Link>
                                 <ElementUI.PermissionRequired permissions={["user.write"]}>
-                                    <Button type="text"> <Link to={{pathname: "/admin/user/" + data.id + "/update"}}> {i18n.t("user.update")} </Link></Button>
+                                    <Link to={{pathname: "/admin/user/" + data.id + "/update"}}> {i18n.t("user.update")} </Link>
                                 </ElementUI.PermissionRequired>
                                 <ElementUI.PermissionRequired permissions={["user.write"]}>
                                     <Button onClick={e => this.delete(data, e)} type="text">{i18n.t("user.delete")}</Button>

@@ -1,6 +1,7 @@
 package app.demo;
 
 import app.demo.common.database.JpaRepository;
+import com.google.common.collect.Maps;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+import java.util.Map;
 
 /**
  * @author chi
@@ -33,6 +35,11 @@ public class AppConfig {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setPackagesToScan(AppConfig.class.getPackage().getName());
+        Map<String, Object> jpaProperties = Maps.newHashMap();
+        jpaProperties.put("hibernate.enable_lazy_load_no_trans", true);
+        jpaProperties.put("hibernate.cache.use_query_cache", true);
+        jpaProperties.put("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+        factoryBean.setJpaPropertyMap(jpaProperties);
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         vendorAdapter.setDatabase(Database.HSQL);
         vendorAdapter.setShowSql(true);

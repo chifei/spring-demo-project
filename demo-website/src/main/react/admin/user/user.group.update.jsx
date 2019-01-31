@@ -139,7 +139,7 @@ export default class UserGroupUpdate extends React.Component {
                         {this.state.id
                             ? <Button type="primary" onClick={() => this.update()}>{i18n.t("user.save")}</Button>
                             : <Button type="primary" onClick={() => this.save()}>{i18n.t("user.save")}</Button>}
-                        <Button type="button"><Link to="/admin/user/role/list">{i18n.t("user.cancel")}</Link></Button>
+                        <Link to="/admin/user/role/list">{i18n.t("user.cancel")}</Link>
                     </div>
                 </div>
                 <div className="body">

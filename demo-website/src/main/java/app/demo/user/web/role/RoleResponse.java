@@ -17,6 +17,8 @@ public class RoleResponse {
     public String name;
     @XmlElement(name = "permissions")
     public List<String> permissions;
+    @XmlElement(name = "totalUsers")
+    public Integer totalUsers;
     @XmlElement(name = "status")
     public RoleStatus status;
     @XmlElement(name = "createdTime")

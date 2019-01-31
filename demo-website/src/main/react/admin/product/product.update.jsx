@@ -74,7 +74,7 @@ export default class ProductUpdate extends React.Component {
                     </div>
                     <div className="toolbar-buttons">
                         <Button type="primary" nativeType="button" onClick={() => this.save()}>{i18n.t("product.save")}</Button>
-                        <Button type="button"><Link to="/admin/product/list">{i18n.t("product.cancel")}</Link></Button>
+                        <Link to="/admin/product/list">{i18n.t("product.cancel")}</Link>
                     </div>
                 </div>
                 <div className="body">

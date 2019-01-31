@@ -77,7 +77,9 @@ public class RoleAJAXController {
         RoleResponse response = new RoleResponse();
         response.id = role.id;
         response.name = role.name;
-        response.permissions = rolePermissionService.getPermissionNames(role.id);
+        if (role.permissions != null) {
+            response.permissions = role.permissions.stream().map(permission -> permission.permissionName).collect(Collectors.toList());
+        }
         response.status = role.status;
         response.createdTime = role.createdTime;
         response.createdBy = role.createdBy;

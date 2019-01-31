@@ -186,7 +186,7 @@ export default class User extends React.Component {
                     </div>
                     <div className="toolbar-buttons">
                         <Button type="primary" onClick={() => this.update()}>{window.ElementUI.i18n.t("user.save")}</Button>
-                        <Button type="button"><Link to="/admin/user/list">{window.ElementUI.i18n.t("user.cancel")}</Link></Button>
+                        <Link to="/admin/user/list">{window.ElementUI.i18n.t("user.cancel")}</Link>
                     </div>
                 </div>
                 <div className="body">

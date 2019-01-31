@@ -26406,94 +26406,35 @@
     cursor: pointer;
 }
 
-:root {
-    /* Transition
-  -------------------------- */
-    /* Colors
-  -------------------------- */
-    /* 主要用于输入框 placeholder 和其他一些相似的提示性文字 */
-    /* Link
-  -------------------------- */
-    /* Border
-  -------------------------- */
-    /* Box-shadow
-  -------------------------- */
-    /* Fill
-  -------------------------- */
-    /* Font
-  -------------------------- */
-    /* Size
-  -------------------------- */
-    /* z-index
-  -------------------------- */
-    /* Disable base
-  -------------------------- */
-    /* Icon
-  -------------------------- */
-    /* Checkbox
-  -------------------------- */
-    /* Radio
-  -------------------------- */
-    /* Select
-  -------------------------- */
-    /* Alert
-  -------------------------- */
-    /* Message Box
-  -------------------------- */
-    /* Message
-  -------------------------- */
-    /* Notification
-  -------------------------- */
-    /* Input
-  -------------------------- */
-    /* Cascader
-  -------------------------- */
-    /* Group
-  -------------------------- */
-    /* Tab
-  -------------------------- */
-    /* Button
-  -------------------------- */
-    /* cascader
-  -------------------------- */
-    /* Switch
- -------------------------- */
-    /* Dialog
- -------------------------- */
-    /* Table
- -------------------------- */
-    /* Pagination
- -------------------------- */
-    /* Popover
- -------------------------- */
-    /* Tooltip
-  -------------------------- */
-    /* Tag
-  -------------------------- */
-    /* Dropdown
-  -------------------------- */
-    /* Badge
-  -------------------------- */
-    /* Card
-  --------------------------*/
-    /* Slider
-  --------------------------*/
-    /* Steps
-  --------------------------*/
-    /* Menu
-  --------------------------*/
-    /* Rate
-  --------------------------*/
-    /* DatePicker
-  --------------------------*/
-    /* Loading
-  --------------------------*/
-    /* Scrollbar
-  --------------------------*/
-    /* Carousel
-  --------------------------*/
-    /* Collapse
-  --------------------------*/
-    /* Transfer
-  --------------------------*/
+.el-table__actions > a {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0 12px;
+    border: none;
+    font-size: 14px;
+    color: #3498db;
+    background: transparent;
+}
+
+.toolbar-buttons > a {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-color: #c4c4c4;
+    color: #333;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
 }

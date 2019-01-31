@@ -1,6 +1,10 @@
 package app.demo.user.domain;
 
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,6 +15,8 @@ import java.time.OffsetDateTime;
 
 
 @Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 @Table(name = "permission")
 public class Permission {
     @Id

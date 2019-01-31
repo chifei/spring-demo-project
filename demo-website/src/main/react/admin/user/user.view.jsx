@@ -1,5 +1,5 @@
 import React from "react";
-import {Breadcrumb, Button, Card, Form, Select} from "element-react";
+import {Breadcrumb, Card, Form, Select} from "element-react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 
@@ -175,7 +175,7 @@ export default class User extends React.Component {
                         </Breadcrumb>
                     </div>
                     <div className="toolbar-buttons">
-                        <Button type="button"><Link to="/admin/user/list">{window.ElementUI.i18n.t("user.cancel")}</Link></Button>
+                        <Link to="/admin/user/list">{window.ElementUI.i18n.t("user.cancel")}</Link>
                     </div>
                 </div>
                 <div className="body">

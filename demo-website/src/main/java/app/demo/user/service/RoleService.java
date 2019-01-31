@@ -10,6 +10,8 @@ import app.demo.user.web.role.UpdateRoleRequest;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.transaction.Transactional;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -24,19 +26,33 @@ public class RoleService {
     @Inject
     RolePermissionService rolePermissionService;
 
+    @Inject
+    EntityManagerFactory emf;
+
     public Role get(String id) {
         return repository.get(Role.class, id);
     }
 
+    @SuppressWarnings("unchecked")
     public List<Role> find(RoleQuery roleQuery) {
-        Query query = Query.create("SELECT t FROM Role t WHERE 1=1");
+        StringBuilder sql = new StringBuilder(64).append("SELECT * FROM role WHERE 1=1");
         if (roleQuery.name != null) {
-            query.append("AND t.name like :name");
-            query.param("name", '%' + roleQuery.name + '%');
+            sql.append("AND name like ?");
         }
-        query.fetch(roleQuery.limit);
-        query.from(roleQuery.limit * (roleQuery.page - 1));
-        return repository.find(query);
+        sql.append(" limit ?, ?");
+        EntityManager em = emf.createEntityManager();
+        try {
+            javax.persistence.Query query = em.createNativeQuery(sql.toString(), Role.class);
+            int index = 1;
+            if (roleQuery.name != null) {
+                query.setParameter(index++, '%' + roleQuery.name + '%');
+            }
+            query.setParameter(index++, (roleQuery.page - 1) * roleQuery.limit);
+            query.setParameter(index, roleQuery.limit);
+            return (List<Role>) query.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
     public long count(RoleQuery roleQuery) {

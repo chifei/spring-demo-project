@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Button, Form, Input, Message as notification, MessageBox, Pagination, Table, Upload, Loading} from "element-react";
+import {Button, Form, Input, Loading, Message as notification, MessageBox, Pagination, Table, Upload} from "element-react";
 
 const i18n = window.i18n;
 export default class ProductList extends React.Component {
@@ -55,9 +55,9 @@ export default class ProductList extends React.Component {
                     render: function(data) {
                         return (
                             <span className="el-table__actions">
-                                <Button type="text" size="mini"><Link to={{pathname: "/admin/product/" + data.id + "/view"}}>{i18n.t("product.view")}</Link></Button>
+                                <Link to={{pathname: "/admin/product/" + data.id + "/view"}}>{i18n.t("product.view")}</Link>
                                 <ElementUI.PermissionRequired permissions={["product.write"]}>
-                                    <Button type="text" size="mini"><Link to={{pathname: "/admin/product/" + data.id + "/update"}}>{i18n.t("product.edit")}</Link></Button>
+                                    <Link to={{pathname: "/admin/product/" + data.id + "/update"}}>{i18n.t("product.edit")}</Link>
                                 </ElementUI.PermissionRequired>
                             </span>
                         );
@@ -187,7 +187,8 @@ export default class ProductList extends React.Component {
                 </div>
                 <div className="body body--full">
                     <Loading text={i18n.t("product.uploading")} loading={this.state.loading}>
-                        <Table style={{width: "100%"}} stripe={true} highlightCurrentRow={true} columns={this.state.columns} data={this.state.data.items} onSelectChange={selected => this.select(selected)} onSortChange={data => this.handleSort(data)}/>
+                        <Table style={{width: "100%"}} stripe={true} highlightCurrentRow={true} columns={this.state.columns} data={this.state.data.items}
+                            onSelectChange={selected => this.select(selected)} onSortChange={data => this.handleSort(data)}/>
                     </Loading>
                 </div>
                 <div className="footer">

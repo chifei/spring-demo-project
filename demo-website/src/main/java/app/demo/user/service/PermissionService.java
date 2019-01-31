@@ -1,12 +1,14 @@
 package app.demo.user.service;
 
 import app.demo.common.database.JpaRepository;
-import app.demo.common.database.Query;
 import app.demo.user.domain.Permission;
 import app.demo.user.web.permission.CreatePermissionRequest;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.time.OffsetDateTime;
 import java.util.List;
@@ -17,6 +19,9 @@ import java.util.UUID;
 public class PermissionService {
     @Inject
     JpaRepository repository;
+
+    @Inject
+    EntityManagerFactory emf;
 
     @Transactional
     public Permission create(CreatePermissionRequest request) {
@@ -35,8 +40,14 @@ public class PermissionService {
     }
 
     public List<Permission> permissions() {
-        Query query = Query.create("SELECT t FROM Permission t WHERE 1=1");
-        return repository.find(query);
+        EntityManager em = emf.createEntityManager();
+        try {
+            TypedQuery<Permission> query = em.createQuery("SELECT t FROM Permission t", Permission.class);
+            query.setHint("org.hibernate.cacheable", true);
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
 }
